@@ -1,4 +1,4 @@
-# Windy City Devs LLC
+# 🐜 Windy City Devs LLC 🐜
 
 ## Extensions to Install
 - vscode-styled-components
