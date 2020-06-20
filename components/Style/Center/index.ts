@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Center = styled.div`
-    max-width: 1000px
+    max-width: 1000px;
     padding: 0 20px;
     margin: auto;
 

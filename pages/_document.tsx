@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { ServerStyleSheet } from "styled-components";
 import Document, {
 	Html,
@@ -25,14 +25,12 @@ export default class MyDocument extends Document {
 			return {
 				...initialProps,
 				styles: (
-					<Fragment>
+					<>
 						{initialProps.styles}
 						{sheet.getStyleElement}
-					</Fragment>
+					</>
 				)
-			};
-		} catch (error) {
-			throw new Error(`_document.tsx error - ${error}`);
+			}
 		} finally {
 			sheet.seal();
 		}
