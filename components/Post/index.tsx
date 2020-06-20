@@ -7,9 +7,9 @@ export const Post: FunctionComponent = () => {
         <Link href="/post/[id]" as="/post/suchexample" passHref>
             <CardPost>
                 <FigurePost>
-                    <img src="post photo" alt="/dogespace.jpg" />
+                    <img alt="post photo" src="/doge.jpg" />
                 </FigurePost>
-                <TitlePost>🐜🐜🐜 P O S T 🐜🐜🐜</TitlePost>
+                <TitlePost>🎯</TitlePost>
                 <ContentPost>
                     <p>
                         Serving static assets like a mofo 

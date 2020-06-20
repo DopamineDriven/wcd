@@ -25,7 +25,7 @@ const NotFound: FunctionComponent = () => {
             </MainSOS>
             That's an error
             <Link href="/">
-                Return Home
+                <a>Return Home</a>
             </Link>
         </ContainerSOS>
     );

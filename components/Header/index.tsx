@@ -8,7 +8,7 @@ export const Header: FunctionComponent = () => {
 			<Center>
 				<LogoHeader>
 					<Link href="/">
-						<a>NEXT</a>
+						<a>Windy City Devs</a>
 					</Link>
 				</LogoHeader>
 			</Center>
