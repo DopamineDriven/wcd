@@ -7,7 +7,7 @@ const Front = () => {
 			<Head>
 				<title>Website Landing Page</title>
 			</Head>
-			<main>Hell world from Next!</main>
+			<main>Next is Now</main>
 		</>
 	);
 };
