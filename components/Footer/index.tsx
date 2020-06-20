@@ -7,7 +7,7 @@ export const Footer: FunctionComponent = () => {
     return (
         <ContainerFooter>
             <Center>
-                <a href="https://fullstack.io">Fullstack.io</a> {currentYear}
+                <a href="https://fullstack.io" target="__blank">Fullstack.io</a> {currentYear}
             </Center>
         </ContainerFooter>
     );

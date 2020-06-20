@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-const Front = () => {
+export default function Front () {
 	return (
 		<>
 			<Head>
@@ -11,5 +11,3 @@ const Front = () => {
 		</>
 	);
 };
-
-export default Front();
