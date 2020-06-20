@@ -1,5 +1,9 @@
 # Windy City Devs LLC
 
+## Extensions to Install
+- vscode-styled-components
+- styled-components-snippets
+
 ## Getting Started with Next
 - `pages` dir is required
     - indicates to Next framework where app pages are located
@@ -113,3 +117,21 @@ export default MyApp;
 ```
 - https://nextjs.org/docs/advanced-features/custom-document
 
+------------------------------------------------------------------------------------------
+## Creating a Feed Component
+- This can showcase recent projects, projects in progress, example websites for specific usecases (eg restaurants), etc
+- starting from the root directory
+```gitbash
+cd components && mkdir Feed && cd Feed && touch index.tsx && cd ../..
+```
+- a section component and its corresponding style file must also be created as follows
+- again, starting from the root directory
+```gitbash
+cd components && mkdir Section && cd Section && touch index.tsx && cd ../Style && mkdir Section && cd Section && touch index.ts && cd ../../..
+```
+- Post, another component, and its corresponding style file must also be created
+```gitbash
+cd components && mkdir Post && cd Post && touch index.tsx && cd ../Style && mkdir Post && cd Post && touch index.ts && cd ../../..
+```
+- whew lad, bash proficiency -> optimal efficiency
+    - always try to start in the root and end in the root (best practice)
