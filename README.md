@@ -118,7 +118,7 @@ export default MyApp;
 - https://nextjs.org/docs/advanced-features/custom-document
 
 ------------------------------------------------------------------------------------------
-## Creating a Feed Component
+## Creating the Feed, Post, and Section Components
 - This can showcase recent projects, projects in progress, example websites for specific usecases (eg restaurants), etc
 - starting from the root directory
 ```gitbash
@@ -135,3 +135,25 @@ cd components && mkdir Post && cd Post && touch index.tsx && cd ../Style && mkdi
 ```
 - whew lad, bash proficiency -> optimal efficiency
     - always try to start in the root and end in the root (best practice)
+
+### useRouter Hook from `next/router`
+- https://nextjs.org/docs/api-reference/next/router
+- ./pages/post/[id].tsx
+- destructure pathname and query props from useRouter hook
+```tsx
+import React, { FunctionComponent } from "react";
+import { useRouter } from "next/router";
+
+const Post: FunctionComponent = () => {
+	const { pathname, query } = useRouter();
+
+	return (
+		<div>
+			Pathname: {pathname};<br />
+			Post Id: {query.id}
+		</div>
+	);
+};
+
+export default Post;
+```
