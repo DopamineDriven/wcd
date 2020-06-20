@@ -1,20 +1,25 @@
 import React, { FunctionComponent } from "react";
 import Link from "next/link";
-import { CardPost, ContentPost, FigurePost, TitlePost } from "../Style";
+import { Post as PostType } from "../../shared/types";
+import { CardPost, FigurePost, LeadPost, TitlePost } from "../Style";
 
-export const Post: FunctionComponent = () => {
+interface PostProps {
+    post: PostType;
+}
+
+export const Post: FunctionComponent<PostProps> = ({ post }) => {
     return (
-        <Link href="/post/[id]" as="/post/suchexample" passHref>
+        <Link href="/post/[id]" as={`/post/${post.id}`} passHref>
             <CardPost>
                 <FigurePost>
-                    <img alt="post photo" src="/doge.jpg" />
+                    <img alt={post.title} src={post.image} />
                 </FigurePost>
-                <TitlePost>🎯</TitlePost>
-                <ContentPost>
-                    <p>
-                        Serving static assets like a mofo 
-                    </p>
-                </ContentPost>
+                <TitlePost>
+                    {post.title}
+                </TitlePost>
+                <LeadPost>
+                    {post.lead}
+                </LeadPost>
             </CardPost>
         </Link>
     );

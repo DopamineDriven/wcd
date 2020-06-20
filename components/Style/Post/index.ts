@@ -39,7 +39,7 @@ export const TitlePost = styled.h3`
     font-size: 1.4rem;
 `;
 
-export const ContentPost = styled.div`
+export const LeadPost = styled.div`
     margin: 0 20px 20px;
 
     & > * {
