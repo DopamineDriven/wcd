@@ -10,9 +10,9 @@
     "build": "next build",
     "build:prod": "run-p exe:dev build",
     "start": "next start",
-    "serve": "ts-node server/index.ts",
+    "serve": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" server/index.ts",
     "exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
-    "dev": "concurrently --kill-others \"npm run serve\" \"next\""
+    "dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\""
   },
   "repository": {
     "type": "git",
