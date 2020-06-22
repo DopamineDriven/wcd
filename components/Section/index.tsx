@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Post as PostType} from "../../shared/types";
-import { Post } from "../Post";
+import { Post } from "../PostCard";
 import { GridSection, TitleSection } from '../Style';
 
 interface SectionProps {

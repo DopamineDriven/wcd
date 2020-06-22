@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardPost = styled.a`
+export const CardPostCard = styled.a`
     border-radius: 6px;
     overflow: hidden;
     background-color: #fff;
@@ -18,7 +18,7 @@ export const CardPost = styled.a`
     }
 `;
 
-export const FigurePost = styled.figure`
+export const FigurePostCard = styled.figure`
     padding: 56% 0 0;
     margin: 0;
     max-width: 100%;
@@ -34,12 +34,12 @@ export const FigurePost = styled.figure`
     }
 `;
 
-export const TitlePost = styled.h3`
+export const TitlePostCard = styled.h3`
     margin: 10px 20px;
     font-size: 1.4rem;
 `;
 
-export const LeadPost = styled.div`
+export const LeadPostCard = styled.div`
     margin: 0 20px 20px;
 
     & > * {
