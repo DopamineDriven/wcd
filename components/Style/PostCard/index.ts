@@ -21,6 +21,7 @@ export const CardPostCard = styled.a`
 export const FigurePostCard = styled.figure`
     padding: 56% 0 0;
     margin: 0;
+    vertical-align: center;
     max-width: 100%;
     position: relative;
     overflow: hidden;
