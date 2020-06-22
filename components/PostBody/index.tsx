@@ -3,11 +3,13 @@ import Link from "next/link";
 import { Post } from "../../shared";
 import {
 	ContentPostBody,
-    FigurePostBody,
-    LeadPostBody,
+	FigurePostBody,
+	LeadPostBody,
 	MetaPostBody,
 	TitlePostBody
 } from "../Style";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 interface PostBodyProps {
 	post: Post;
@@ -18,11 +20,19 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 		<div>
 			<TitlePostBody>{post.title}</TitlePostBody>
 			<FigurePostBody>
-				<img src={post.image} alt={post.title} />
+				{post.category !== "People" ? (
+					<img src={post.image} alt={post.title} />
+				) : (
+					<Avatar
+						src={post.image}
+						alt={post.title}
+						icon={<UserOutlined />}
+						shape="circle"
+						size={400}
+					/>
+				)}
 			</FigurePostBody>
-            <LeadPostBody>
-                {post.lead}
-            </LeadPostBody>
+			<LeadPostBody>{post.lead}</LeadPostBody>
 			<ContentPostBody dangerouslySetInnerHTML={{ __html: post.content }} />
 
 			<MetaPostBody>
@@ -37,3 +47,9 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 		</div>
 	);
 };
+
+/*
+			<FigurePostBody>
+				<Avatar src={post.image} alt={post.title} icon={<UserOutlined />} shape="circle" />
+			</FigurePostBody>
+*/

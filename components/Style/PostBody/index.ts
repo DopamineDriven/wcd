@@ -5,6 +5,7 @@ export const TitlePostBody = styled.h2`
     line-height: 1.2;
     margin: 10px 0 20px;
 
+
     @media (max-width: 800px) {
         font-size: 1.8rem;
         margin: 15px 0;
@@ -12,7 +13,8 @@ export const TitlePostBody = styled.h2`
 `;
 
 export const LeadPostBody = styled.h4`
-    margin: 0 20px 20px;
+    margin: 0 20px 20px 0px;
+    font-size: 1.5rem;
 
     & > * {
         margin: 0 0 10px;
@@ -21,9 +23,10 @@ export const LeadPostBody = styled.h4`
 
 
 export const FigurePostBody = styled.figure`
-    padding: 3.5% 0 0;
-    margin: 0 0 30px;
+    padding: 0 10% 0 0;
+    margin: 0 20px 30px;
     max-width: 100%;
+    text-align: center;
     position: relative;
     overflow: hidden;
     border-radius: 6px;
@@ -38,7 +41,7 @@ export const FigurePostBody = styled.figure`
     }
 
     @media (max-width: 800px) {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 `;
 
@@ -46,6 +49,7 @@ export const ContentPostBody = styled.div`
     font-size: 1.25rem;
     line-height: 1.4;
     max-width: 800px;
+    text-align: justify;
 `;
 
 export const MetaPostBody = styled.footer`
