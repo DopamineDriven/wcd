@@ -35,6 +35,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.23.1",
+    "lru-cache": "^5.1.1",
     "mongodb": "^3.5.9",
     "next": "^9.4.4",
     "node-fetch": "^2.6.0",

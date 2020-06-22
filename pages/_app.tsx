@@ -11,6 +11,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<GlobalStyle theme={theme} />
 			<Head>
+				
+			</Head>
+			<Head>
 				<title>Next.ts</title>
 			</Head>
 			<Header />

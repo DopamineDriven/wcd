@@ -14,7 +14,8 @@ export const TitlePostBody = styled.h2`
 
 export const LeadPostBody = styled.h4`
     margin: 0 20px 20px 0px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 0.5em;
 
     & > * {
         margin: 0 0 10px;

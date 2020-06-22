@@ -7,7 +7,7 @@ export const Footer: FunctionComponent = () => {
     return (
         <ContainerFooter>
             <Center>
-                <a href="https://github.com/DopamineDriven/wcd" target="__blank">{currentYear}</a>
+                <a href="https://github.com/DopamineDriven/wcd" target="__blank">{`© ${currentYear}`}</a>
             </Center>
         </ContainerFooter>
     );

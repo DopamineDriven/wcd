@@ -7,19 +7,20 @@ export const ContainerHeader = styled.header`
     right: 0;
 
     height: 50px;
-    padding: 7px 0;
+    padding: 7px 0 10px;
 
-    background-color: white;
+    background-color: #ffffff;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0,2);
 `;
 
 export const LogoHeader = styled.h1`
-    font-size: 1.6rem;
+    font-size: 3rem;
     font-family: ${(p) => p.theme.fonts.accent};
+    padding-bottom: 15px;
 
     a {
         text-decoration: none;
-        color: black; 
+        color: #000000; 
     }
 
     a:hover {

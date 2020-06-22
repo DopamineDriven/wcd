@@ -28,6 +28,7 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 					<Avatar
 						src={post.image}
 						alt={post.title}
+						style={{ verticalAlign: "center" }}
 						icon={<UserOutlined />}
 						shape="circle"
 						size={400}

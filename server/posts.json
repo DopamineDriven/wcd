@@ -62,12 +62,12 @@
     {
       "id": 7,
       "title": "Andrew Ross",
-      "date": "2020-06-21",
+      "date": "2020-06-22",
       "category": "People",
       "source": "https://github.com/DopamineDriven",
-      "image": "https://res.cloudinary.com/asross311/image/upload/v1592802018/ASR_Assets/an_cqbyjo.png",
+      "image": "https://res.cloudinary.com/asross311/image/upload/v1592831978/ASR_Assets/cropped-a_nqaem7.png",
       "lead": "CTO",
-      "content": "<p>First and foremost, TypeScript puts the super in super-set, especially in a team environment. State management in React can be cumbersome, which is why I consider GraphQL and Apollo to be the dynamic duo.</p><p> That said, Redux finishes a close second but sticking with Native Hooks is a solid option as well. The \"Next.js\" framework expedites an otherwise involved configuration of React + TS + Webpack to achieve SSR for blazing fast apps.</p>"
+      "content": "<p>First and foremost, TypeScript puts the super in superset, especially in a team environment. State management in React can be cumbersome, which is why I consider GraphQL and Apollo to be the dynamic duo. That said, Redux and Recoil each have their use-cases as well.</p><p>As far as primary prebuilts are concerened, the \"Next.js\" framework is top-notch. It removes the otherwise tedious process of manually configuring Webpack to support a server-side rendering app from the equation. It saves time, simplifies optimization, and delivers blazing fast performance to ultimately enhance end-user experience.</p><p> \"The mechanic that would perfect his work must first sharpen his tools.\" - <em>Confucius</em></p><br />"
     },
     {
       "id": 8,

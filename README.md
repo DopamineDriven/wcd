@@ -205,5 +205,11 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 };
 ```
 
-## Adding a secondary `build` tsconfig
+### Adding a secondary `build` tsconfig
 - https://kjaer.io/ts-npm-config/
+
+### TypeScript + Babbel 
+- https://iamturns.com/typescript-babel/
+
+### Public Folder houses Static Assets
+- https://stackoverflow.com/questions/56213019/how-to-add-a-favicon-to-a-next-js-static-site
