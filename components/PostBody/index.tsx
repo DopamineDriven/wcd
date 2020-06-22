@@ -10,6 +10,7 @@ import {
 } from "../Style";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import { Breadcrumbs } from "../Breadcrumbs";
 
 interface PostBodyProps {
 	post: Post;
@@ -18,6 +19,7 @@ interface PostBodyProps {
 export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 	return (
 		<div>
+			<Breadcrumbs post={post} />
 			<TitlePostBody>{post.title}</TitlePostBody>
 			<FigurePostBody>
 				{post.category !== "People" ? (
