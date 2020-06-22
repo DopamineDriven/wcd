@@ -65,7 +65,7 @@
       "date": "2020-06-21",
       "category": "People",
       "source": "https://github.com/DopamineDriven",
-      "image": "https://res.cloudinary.com/asross311/image/upload/v1592689576/ASR_Assets/andrewfb_diw3ta.jpg",
+      "image": "https://res.cloudinary.com/asross311/image/upload/v1592800304/ASR_Assets/andrew_qoccee.jpg",
       "lead": "CTO",
       "content": "<p>First and foremost, TypeScript puts the super in super-set, especially in a team environment. State management in React can be cumbersome, which is why I consider GraphQL and Apollo to be the dynamic duo.</p><p> That said, Redux finishes a close second but sticking with Native Hooks is a solid option as well. The \"Next.js\" framework expedites an otherwise involved configuration of React + TS + Webpack to achieve SSR for blazing fast apps.</p>"
     },
