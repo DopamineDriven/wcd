@@ -1,27 +1,34 @@
 import React, { FunctionComponent } from "react";
-import { Post as PostType} from "../../shared/types";
-import { Post } from "../PostCard";
-import { GridSection, TitleSection } from '../Style';
+import Link from "next/link";
+import { Post as PostType } from "../../shared/types";
+import { PostCard } from "../PostCard";
+import { GridSection, LinkSection, TitleSection } from "../Style";
 
 interface SectionProps {
-    title: string;
-    posts: PostType[];
+	title: string;
+	posts: PostType[];
+	isCompact?: boolean;
 }
 
-export const Section: FunctionComponent<SectionProps> = ({ title, posts }) => {
-    return (
-        <section>
-            <TitleSection>
-                {title}
-            </TitleSection>
-            <GridSection>
-                {posts.map((post) => (
-                    <Post 
-                        key={post.id}
-                        post={post}
-                    />
-                ))}
-            </GridSection>
-        </section>
-    )
+export const Section: FunctionComponent<SectionProps> = ({
+	title,
+	posts,
+	isCompact = false
+}) => {
+	return (
+		<section>
+			<TitleSection>{title}</TitleSection>
+			<GridSection>
+				{posts.map((post) => (
+					<PostCard key={post.id} post={post} />
+				))}
+			</GridSection>
+
+			{isCompact && (
+				<Link href={`/category/${title}`} passHref={true}>
+					<LinkSection>More in {title}</LinkSection>
+				</Link>
+			)}
+		</section>
+	);
 };

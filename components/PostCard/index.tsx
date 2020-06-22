@@ -12,7 +12,7 @@ interface PostCardProps {
 	post: PostType;
 }
 
-export const Post: FunctionComponent<PostCardProps> = ({ post }) => {
+export const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
 	return (
 		<Link href="/post/[id]" as={`/post/${post.id}`} passHref={true}>
 			<CardPostCard>

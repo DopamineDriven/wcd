@@ -5,6 +5,11 @@ export const GridSection = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
 
+    &:after {
+        content: "";
+        flex: auto;
+    }
+
     &:after,
     & > * {
         width: calc(33% - 10px);
