@@ -6,7 +6,7 @@ import compression from "compression";
 import cors from "cors";
 import bodyParser from "body-parser";
 import categories from "./categories.json";
-import posts from "./categories.json";
+import posts from "./posts.json";
 
 const mount = (app: Application) => {
 
@@ -33,3 +33,4 @@ const mount = (app: Application) => {
 
 mount(express());
 
+// https://nextjs.org/docs/basic-features/typescript#api-routes
