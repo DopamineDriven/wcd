@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Post } from "../../shared";
 import {
 	ContentPostBody,
-	FigurePostBody,
+    FigurePostBody,
+    LeadPostBody,
 	MetaPostBody,
 	TitlePostBody
 } from "../Style";
@@ -19,7 +20,9 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 			<FigurePostBody>
 				<img src={post.image} alt={post.title} />
 			</FigurePostBody>
-
+            <LeadPostBody>
+                {post.lead}
+            </LeadPostBody>
 			<ContentPostBody dangerouslySetInnerHTML={{ __html: post.content }} />
 
 			<MetaPostBody>

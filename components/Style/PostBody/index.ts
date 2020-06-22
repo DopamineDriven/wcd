@@ -11,6 +11,15 @@ export const TitlePostBody = styled.h2`
     }
 `;
 
+export const LeadPostBody = styled.h4`
+    margin: 0 20px 20px;
+
+    & > * {
+        margin: 0 0 10px;
+    }
+`;
+
+
 export const FigurePostBody = styled.figure`
     padding: 3.5% 0 0;
     margin: 0 0 30px;
