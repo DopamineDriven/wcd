@@ -62,7 +62,7 @@
     {
       "id": 7,
       "title": "Andrew Ross'",
-      "date": "2020-06-20",
+      "date": "2020-06-21",
       "category": "People",
       "source": "https://github.com/DopamineDriven",
       "image": "https://res.cloudinary.com/asross311/image/upload/v1592689576/ASR_Assets/andrewfb_diw3ta.jpg",
@@ -72,7 +72,7 @@
     {
       "id": 8,
       "title": "Joe Shields",
-      "date": "2020-04-23",
+      "date": "2020-06-21",
       "category": "People",
       "source": "https://github.com/JShields30",
       "image": "https://res.cloudinary.com/asross311/image/upload/v1592689568/ASR_Assets/joefb_qxvek9.jpg",
@@ -82,12 +82,12 @@
     {
       "id": 9,
       "title": "Genghis Yong",
-      "date": "2020-04-23",
+      "date": "2020-06-21",
       "category": "People",
       "source": "https://github.com/yhlee-dho",
       "image": "https://res.cloudinary.com/asross311/image/upload/v1591486416/ASR_Assets/yong_bwdzni.jpg",
       "lead": "COO",
-      "content": "<p>Currently working on a new discord bot -- \"WAFFLES\". Everyone's going to want a piece of that syrupy flaky Yong Waffle good-good. YUMMMM.</p>"
+      "content": "<p>Currently working on a new discord bot -- \"WAFFLES\". Everyone's going to want a piece of that syrupy, flaky, Yonglicious good-good.</p>"
     }
   ]
   

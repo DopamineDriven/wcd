@@ -9,10 +9,10 @@ interface PostProps {
 
 export const Post: FunctionComponent<PostProps> = ({ post }) => {
     return (
-        <Link href="/post/[id]" as={`/post/${post.id}`} passHref>
+        <Link href="/post/[id]" as={`/post/${post.id}`} passHref={true}>
             <CardPost>
                 <FigurePost>
-                    <img alt={post.title} src={post.image} />
+                    <img alt={post.title} src={post.image}   />
                 </FigurePost>
                 <TitlePost>
                     {post.title}

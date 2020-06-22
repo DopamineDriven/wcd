@@ -7,7 +7,7 @@ import { config } from "../Config";
 export const fetchPosts = async (): Promise<Post[]> => {
 	try {
 		const res = await fetch(`${config.baseUrl}/posts`);
-		return res.json();
+		return await res.json();
 	} catch (error) {
 		throw new Error(`fetchPosts error - ${error}`);
 	}
@@ -16,7 +16,7 @@ export const fetchPosts = async (): Promise<Post[]> => {
 export const fetchCategories = async (): Promise<Category[]> => {
 	try {
 		const res = await fetch(`${config.baseUrl}/categories`);
-		return res.json();
+		return await res.json();
 	} catch (error) {
 		throw new Error(`fetchCategories error - ${error}`);
 	}

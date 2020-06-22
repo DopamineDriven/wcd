@@ -1,4 +1,5 @@
 import React from "react";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Category, Post } from "../shared/types";
 import { Feed } from "../components";
@@ -9,13 +10,13 @@ interface FrontProps {
 	posts: Post[];
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 	const categories = await fetchCategories();
 	const posts = await fetchPosts();
-	return { props: { posts, categories } }
-};
+	return { props: { posts, categories } };
+}
 
-export default function Front ({ categories, posts }: FrontProps) {
+export default function Front({ categories, posts }: FrontProps) {
 	return (
 		<>
 			<Head>
@@ -23,8 +24,8 @@ export default function Front ({ categories, posts }: FrontProps) {
 			</Head>
 
 			<main>
-                <Feed posts={posts} categories={categories} />
-            </main>
+				<Feed posts={posts} categories={categories} />
+			</main>
 		</>
 	);
-};
+}

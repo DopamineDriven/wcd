@@ -17,15 +17,33 @@ const MainSOS = styled.h2`
     width: 100%;
 `;
 
+const SubSOS = styled.h3`
+    font-size: 5rem;
+    line-height: 11rem;
+    font-family: ${(p) => p.theme.fonts.accent};
+    width: 100%;
+`;
+
+const LinkSOS = styled.a`
+    font-size: 3.5rem;
+    line-height: 4rem;
+    font-family: ${(p) => p.theme.fonts.accent};
+    width: 100%;
+`;
+
 const NotFound: FunctionComponent = () => {
     return (
         <ContainerSOS>
             <MainSOS>
                 404
             </MainSOS>
-            That's an error
+            <SubSOS>
+                That's an error
+            </SubSOS>
             <Link href="/">
-                <a>Return Home</a>
+                <LinkSOS>
+                    Return Home
+                </LinkSOS>
             </Link>
         </ContainerSOS>
     );

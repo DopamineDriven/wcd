@@ -7,7 +7,7 @@ const Post: FunctionComponent = () => {
 	return (
 		<div>
 			Pathname: {pathname};<br />
-			Post Id: {query.id}
+			Post Id: {query.id}.
 		</div>
 	);
 };

@@ -12,7 +12,7 @@ const mount = (app: Application) => {
 
     app.use(
         compression(),
-        bodyParser.json({ limit: "3mb" }),
+        bodyParser.json(),
         cors(),
         Helmet()
     );
