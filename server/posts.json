@@ -65,7 +65,7 @@
       "date": "2020-06-21",
       "category": "People",
       "source": "https://github.com/DopamineDriven",
-      "image": "https://res.cloudinary.com/asross311/image/upload/v1592801434/ASR_Assets/andrew_sebv3p.jpg",
+      "image": "https://res.cloudinary.com/asross311/image/upload/v1592801689/ASR_Assets/cropped-a_fjjst8.png",
       "lead": "CTO",
       "content": "<p>First and foremost, TypeScript puts the super in super-set, especially in a team environment. State management in React can be cumbersome, which is why I consider GraphQL and Apollo to be the dynamic duo.</p><p> That said, Redux finishes a close second but sticking with Native Hooks is a solid option as well. The \"Next.js\" framework expedites an otherwise involved configuration of React + TS + Webpack to achieve SSR for blazing fast apps.</p>"
     },
@@ -75,7 +75,7 @@
       "date": "2020-06-21",
       "category": "People",
       "source": "https://github.com/JShields30",
-      "image": "https://res.cloudinary.com/asross311/image/upload/v1592799598/ASR_Assets/Joe_ghkcng.jpg",
+      "image": "https://res.cloudinary.com/asross311/image/upload/v1592801826/ASR_Assets/Joe_vlnzpm.jpg",
       "lead": "CEO",
       "content": "<p>Software Engineer skilled in both back-end and front-end, with particular interest in design and UX-UI experience. My career as a director of market research inspired me to pursue my true passion of creating web applications.</p><p> I love being creative and unique, but I also appreciate the technical challenges of back-end development. When programming I follow structure and order, since this is essential when creating quality web applications. I enjoy debugging and critiquing small details, as well as optimizing applications.</p>"
     },
