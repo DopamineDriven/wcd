@@ -40,7 +40,7 @@ npm run dev
 - why?
     - Next automatically populates tsconfig w/ default values upon launching dev
 
-- Good work so far. Now, create index.tsx in the `pages` dir
+- Now, create index.tsx in the `pages` dir
 ```gitbash
 cd pages && touch index.tsx && cd ..
 ```
@@ -112,7 +112,7 @@ export default MyApp;
 ```XML
 <Html></Html>
 <Head />
-<Main/>
+<Main />
 <NextScript />
 ```
 - https://nextjs.org/docs/advanced-features/custom-document
@@ -157,3 +157,9 @@ const Post: FunctionComponent = () => {
 
 export default Post;
 ```
+
+-------------------------------------------------------------------------------
+### Abbreviations
+- &nbsp or &middot, for example
+- https://www.toptal.com/designers/htmlarrows/punctuation/middle-dot/
+
