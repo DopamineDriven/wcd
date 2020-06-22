@@ -12,7 +12,7 @@ export const TitlePostBody = styled.h2`
 `;
 
 export const FigurePostBody = styled.figure`
-    padding: 35% 0 0;
+    padding: 3.5% 0 0;
     margin: 0 0 30px;
     max-width: 100%;
     position: relative;
