@@ -4,7 +4,6 @@ import express, { Application } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
-import bodyParser from "body-parser";
 import categories from "./categories.json";
 import posts from "./posts.json";
 // import { Post, EntityId } from '../shared/types';
@@ -13,7 +12,7 @@ const mount = (app: Application) => {
 
     app.use(
         compression(),
-        bodyParser.json(),
+        express.json(),
         cors(),
         Helmet()
     );
@@ -22,7 +21,7 @@ const mount = (app: Application) => {
         return res.json(posts)
     });
 
-    app.get("/posts/:id", async (req, res) => {
+    app.get("/posts/:id", (req, res) => {
         const relevantId = String(req.params.id);
         const post = posts.find(({ id }) =>  String(id) === relevantId);
         return res.json(post)
@@ -30,6 +29,13 @@ const mount = (app: Application) => {
 
     app.get("/categories", (_req, res) => {
         return res.json(categories)
+    });
+
+    app.get("/categories/:id", (req, res) => {
+        const { id } = req.params;
+        const foundPost = posts.filter(({ category }) => category === id);
+        const categoryPosts = [...foundPost, ...foundPost, ...foundPost];
+        return res.json(categoryPosts);
     });
 
     app.listen(process.env.PORT);
