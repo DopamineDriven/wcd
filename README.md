@@ -204,3 +204,6 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 	);
 };
 ```
+
+## Adding a secondary `build` tsconfig
+- https://kjaer.io/ts-npm-config/

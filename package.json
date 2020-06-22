@@ -8,8 +8,10 @@
   },
   "scripts": {
     "build": "next build",
+    "build:prod": "run-p exe:dev build",
     "start": "next start",
     "serve": "ts-node server/index.ts",
+    "exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
     "dev": "concurrently --kill-others \"npm run serve\" \"next\""
   },
   "repository": {
@@ -54,6 +56,7 @@
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
     "dotenv": "^8.2.0",
+    "npm-run-all": "^4.1.5",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   }
