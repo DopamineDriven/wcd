@@ -5,5 +5,9 @@
 			{ "ssr": true, "displayName": true, "preprocess": false }
 		]
 	],
-	"presets": ["next/babel"]
+	"presets": [
+		"next/babel",
+		"@zeit/next-typescript/babel",
+		"babel-preset-react-app"
+	]
 }

@@ -2,9 +2,17 @@
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": 2020,
-		"sourceType": "module"
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
 	},
-	"extends": ["plugin:@typescript-eslint/recommended"],
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings"
+	],
 	"env": {
 		"node": true,
 		"es6": true
@@ -14,5 +22,10 @@
 		"indent": "off",
 		"@typescript-eslint/indent": "off",
 		"@typescript-eslint/explicit-function-return-type": "off"
-    }
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
 }
