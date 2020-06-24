@@ -1,12 +1,36 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-import express, { Application } from "express";
+import express, { Application, Request, Response } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
 import categories from "./categories.json";
 import posts from "./posts.json";
-// import { Post, EntityId } from '../shared/types';
+// import LRUcache from "lru-cache";
+
+// interface LRUcacheProps {
+//     value: string | number;
+//     key: string;
+//     req: Request;
+//     res: Response;
+// }
+
+// interface renderAndCacheProps {
+//     value: string | number;
+//     key: string;
+//     req: Request;
+//     res: Response;
+//     pagePath: string;
+//     queryParams: object | string;
+// }
+
+// const ssrCache = new LRUcache ({
+//     length: ({value, key}: LRUcacheProps) => {
+//         return value.toString().length + key.toString().length
+//     },
+//     max: 100 * 1000 * 1000,
+//     maxAge: 1000 * 30
+// })
 
 const mount = (app: Application) => {
 
@@ -38,11 +62,29 @@ const mount = (app: Application) => {
         return res.json(categoryPosts);
     });
 
+    // app.get('*', (req, res) => {
+    //     if (
+    //         req.url === "/" ||
+    //         req.url === "/posts" ||
+    //         req.url === "/categories"
+    //     ) {
+        
+    //     }
+    // })
+
     app.listen(process.env.PORT);
     console.log(`[app]: http://localhost:3000`);
     console.log(`[app]: http://localhost:${process.env.PORT}/posts`);
     console.log(`[app]: http://localhost:${process.env.PORT}/categories`);
 };
+
+// async function renderAndCache({req, res, pagePath, queryParams}: renderAndCacheProps) {
+//     const key = getCacheKey(req);
+//     if (ssrCache.has(key)) {
+//         res.setHeader("x-cache", "HIT");
+//         res.send(ssrCache.get(key))
+//     }
+// }
 
 mount(express());
 
