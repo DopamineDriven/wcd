@@ -12,7 +12,7 @@ export const GridSection = styled.div`
 
     &:after,
     & > * {
-        width: calc(33% - 10px);
+        width: calc(30% - 2px);
         margin-bottom: 20px;
     }
 
