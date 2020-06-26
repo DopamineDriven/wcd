@@ -4,17 +4,20 @@ import { useRouter } from "next/router";
 import { fetchPostsByCategory } from "../../api";
 import { Post, categoryPaths as paths } from "../../shared";
 import { Loader, Section } from "../../components";
+import { ParsedUrlQuery } from 'querystring';
 
 interface CategoryProps {
 	posts: Post[];
 }
 
-export const getStaticProps: GetStaticProps<CategoryProps> = async ({
-	params
-}) => {
+interface Params {
+	params: ParsedUrlQuery;
+}
+
+export async function getStaticProps({ params }: Params & GetStaticProps) {
 	const posts = await fetchPostsByCategory(params.id as string);
 	return { props: { posts } };
-};
+}
 
 export const getStaticPaths = async () => {
 	return { paths, fallback: true };

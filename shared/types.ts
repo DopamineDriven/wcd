@@ -1,4 +1,5 @@
 import { Collection, ObjectId } from "mongodb";
+import { ParsedUrlQuery } from 'querystring';
 
 export type UriString = string;
 
@@ -9,6 +10,8 @@ export type EntityId = number | UniqueString;
 export type Category = "Technology" | "Science" | "People";
 
 export type DateIsoString = string;
+
+export type CategoryProps = { params: ParsedUrlQuery; posts: Post[]; }
 
 export interface Post {
     _id: ObjectId;
