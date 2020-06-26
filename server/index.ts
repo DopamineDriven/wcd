@@ -5,7 +5,8 @@ import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
 import categories from "./categories.json";
-import posts from "./posts.json";
+import { connectDatabase } from "../database";
+import { Post } from "../shared";
 // import LRUcache from "lru-cache";
 
 // interface LRUcacheProps {
@@ -32,7 +33,10 @@ import posts from "./posts.json";
 //     maxAge: 1000 * 30
 // })
 
-const mount = (app: Application) => {
+const mount = async (app: Application) => {
+    const db = await connectDatabase();
+    const posts: Post[] = await db.posts.find({}).toArray();
+    console.log(posts);
 
     app.use(
         compression(),
@@ -49,7 +53,7 @@ const mount = (app: Application) => {
         const relevantId = String(req.params.id);
         const post = posts.find(({ id }) =>  String(id) === relevantId);
         return res.json(post)
-    })
+    });
 
     app.get("/categories", (_req, res) => {
         return res.json(categories)

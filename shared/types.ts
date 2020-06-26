@@ -1,3 +1,5 @@
+import { Collection, ObjectId } from "mongodb";
+
 export type UriString = string;
 
 export type UniqueString = string;
@@ -9,6 +11,7 @@ export type Category = "Technology" | "Science" | "People";
 export type DateIsoString = string;
 
 export interface Post {
+    _id: ObjectId;
     id: EntityId;
     date: DateIsoString;
     category: Category;
@@ -17,4 +20,8 @@ export interface Post {
     content: string;
     image: UriString;
     source: UriString;
+}
+
+export interface Database {
+    posts: Collection<Post>
 }

@@ -1,5 +1,18 @@
 # 🐜 Windy City Devs LLC 🐜
 
+## Updating Post data in ./cloud/seed.ts
+- each time an update is made run the following in order
+```git
+npm run clear
+```
+```git
+npm run seed
+```
+- then double check to ensure that the data was pulled from the cloud correctly
+```git
+npm run dev
+```
+
 ## Extensions to Install
 - vscode-styled-components
 - styled-components-snippets
