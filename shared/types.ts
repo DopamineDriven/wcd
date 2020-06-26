@@ -11,8 +11,6 @@ export type Category = "Technology" | "Science" | "People";
 
 export type DateIsoString = string;
 
-export type CategoryProps = { params: ParsedUrlQuery; posts: Post[]; }
-
 export interface Post {
     _id: ObjectId;
     id: EntityId;
