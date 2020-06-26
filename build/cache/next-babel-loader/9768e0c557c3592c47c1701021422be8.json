@@ -1,0 +1,1 @@
+{"ast":null,"code":"import * as dotenv from \"dotenv\";\ndotenv.config();\nimport fetch from \"node-fetch\";\nimport { config } from \"../Config\";\nexport const fetchPost = async id => {\n  const res = await fetch(`${config.baseUrl}/posts/${id}`);\n  return res.json();\n};","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nexport var ContainerLoader = styled.div.withConfig({\n  displayName: \"Loader__ContainerLoader\",\n  componentId: \"sc-18fkz5k-0\"\n})([\"font-family:\", \";color:pink;\"], function (p) {\n  return p.theme.fonts.accent;\n});","map":null,"metadata":{},"sourceType":"module"}

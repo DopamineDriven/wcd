@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nexport const ContainerBreadcrumbs = styled.nav.withConfig({\n  displayName: \"Breadcrumbs__ContainerBreadcrumbs\",\n  componentId: \"sc-2hqxsp-0\"\n})([\"& > *{margin-right:0.3em;}\"]);","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import * as dotenv from \"dotenv\";\ndotenv.config();\nimport fetch from \"node-fetch\";\nimport { config } from \"../Config\";\nexport const fetchPostsByCategory = async categoryId => {\n  const url = `${config.baseUrl}/categories/${categoryId}`;\n  const res = await fetch(url);\n  return res.json();\n};","map":null,"metadata":{},"sourceType":"module"}

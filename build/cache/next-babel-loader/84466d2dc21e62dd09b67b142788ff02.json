@@ -1,0 +1,1 @@
+{"ast":null,"code":"import * as dotenv from \"dotenv\";\ndotenv.config();\nexport const config = {\n  baseUrl: `http://localhost:${process.env.PORT}`\n};","map":null,"metadata":{},"sourceType":"module"}
