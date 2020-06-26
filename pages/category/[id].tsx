@@ -14,7 +14,7 @@ interface Params {
 	params: ParsedUrlQuery;
 }
 
-export async function getStaticProps({ params }: Params & GetStaticProps) {
+export const getStaticProps = async ({ params }: Params & GetStaticProps) => {
 	const posts = await fetchPostsByCategory(params.id as string);
 	return { props: { posts } };
 }
