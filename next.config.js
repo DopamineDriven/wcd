@@ -1,6 +1,1 @@
-const withTypescript = require("@zeit/next-typescript");
-
-module.exports = {
-    withTypescript,
-    distDir: "build"
-};
+module.exports = { distDir: "build" };

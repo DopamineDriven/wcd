@@ -28,4 +28,4 @@ export default function Front({ categories, posts }: FrontProps) {
 			</main>
 		</>
 	);
-}
+};

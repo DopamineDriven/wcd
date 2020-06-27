@@ -226,3 +226,6 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 
 ### Public Folder houses Static Assets
 - https://stackoverflow.com/questions/56213019/how-to-add-a-favicon-to-a-next-js-static-site
+
+### Git rename local and remote branch
+- https://www.majidhajian.com/blog/git-rename-local-and-remote-branch
