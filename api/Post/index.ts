@@ -1,5 +1,3 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 import fetch from "node-fetch";
 import { Post, EntityId } from "../../shared";
 import { config } from "../Config";

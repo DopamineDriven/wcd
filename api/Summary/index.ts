@@ -1,5 +1,3 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 import fetch from "node-fetch";
 import { Category, Post } from "../../shared";
 import { config } from "../Config";
