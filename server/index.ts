@@ -7,6 +7,30 @@ import cors from "cors";
 import categories from "./categories.json";
 import { connectDatabase } from "../database";
 import { Post } from "../shared";
+// import { parse, parseAndGenerateServices } from "@typescript-eslint/typescript-estree";
+
+
+// const code = `string of code to be parsed into an AST`;
+// // parses code with options provided, returns ESTree-compatible AST
+// const ast = parse(code, {
+// 	loc: true,
+// 	range: true
+// });
+
+// // accepts additional options relative to parse
+// // can generate an AST containing type information
+// const ast2 = parseAndGenerateServices(code, {
+//     filePath: '/some/path',
+//     loc: true,
+//     project: '../tsconfig.json',
+//     range: true
+// });
+
+
+
+
+
+
 // import LRUcache from "lru-cache";
 
 // interface LRUcacheProps {
