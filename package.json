@@ -72,5 +72,22 @@
 		"ts-node": "^8.10.2",
 		"typescript": "^3.9.5"
 	},
+	"babel": {
+		"plugins": [
+			[
+				"styled-components",
+				{
+					"ssr": true,
+					"displayName": true,
+					"preprocess": false
+				}
+			]
+		],
+		"presets": [
+			"babel-preset-react-app",
+			"next/babel",
+			"@zeit/next-typescript/babel"
+		]
+	},
 	"root": true
 }
