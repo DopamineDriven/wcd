@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 dotenv.config({ path: ".env" });
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";

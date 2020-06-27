@@ -299,3 +299,45 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
 
 ### Git rename local and remote branch
 - https://www.majidhajian.com/blog/git-rename-local-and-remote-branch
+
+
+```js
+module.exports = {
+	parser: "@typescript-eslint/parser",
+	extends: [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended",
+		"eslint-config-prettier"
+	],
+	parserOptions: {
+		ecmaVersion: 2020,
+		sourceType: "module",
+		ecmaFeatures: {
+			jsx: true
+		}
+	},
+	plugins: ["@typescript-eslint", "prettier"],
+	env: {
+		node: true,
+		es6: true,
+		browser: true
+	},
+	rules: {
+		// could set "indent": [true, "tabs", 1]
+		"react/prop-types": "off",
+		indent: "off",
+		"@typescript-eslint/indent": "off",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"prettier/prettier": "error"
+	},
+	settings: {
+		react: {
+			version: "detect"
+		}
+	}
+};
+
+```

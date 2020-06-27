@@ -1,5 +1,10 @@
 {
 	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended"
+	],
 	"parserOptions": {
 		"ecmaVersion": 2020,
 		"sourceType": "module",
@@ -7,21 +12,19 @@
 			"jsx": true
 		}
 	},
-	"extends": [
-		"plugin:@typescript-eslint/recommended",
-		"plugin:react/recommended",
-		"plugin:import/errors",
-		"plugin:import/warnings"
-	],
+	"plugins": ["@typescript-eslint"],
 	"env": {
 		"node": true,
-		"es6": true
+		"es6": true,
+		"browser": true
 	},
 	"rules": {
 		// could set "indent": [true, "tabs", 1]
 		"indent": "off",
 		"@typescript-eslint/indent": "off",
-		"@typescript-eslint/explicit-function-return-type": "off"
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"react/prop-types": "off"
 	},
 	"settings": {
 		"react": {

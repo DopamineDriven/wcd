@@ -1,19 +1,19 @@
 import { createGlobalStyle, ThemeProps } from "styled-components";
 
 export const theme = {
-    fonts: {
-        basic: "Helvetica, sans-serif",
-        accent: '"Permanent Marker", cursive'
-    },
-    colors: {
-        orange: "#f4ae40",
-        blue: "#387af5",
-        pink: "#eb57a3"
-    }
+	fonts: {
+		basic: "Helvetica, sans-serif",
+		accent: '"Permanent Marker", cursive'
+	},
+	colors: {
+		orange: "#f4ae40",
+		blue: "#387af5",
+		pink: "#eb57a3"
+	}
 };
 // credits: https://colors.lol/fou.
 
-export type MainThemeProps = ThemeProps<typeof theme>
+export type MainThemeProps = ThemeProps<typeof theme>;
 export const GlobalStyle = createGlobalStyle<MainThemeProps>`
     body {
         margin: 0;
