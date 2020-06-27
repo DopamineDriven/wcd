@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -31,7 +31,7 @@ const LinkSOS = styled.a`
 	width: 100%;
 `;
 
-const NotFound: FunctionComponent = () => {
+const NotFound: FC = () => {
 	return (
 		<ContainerSOS>
 			<MainSOS>404</MainSOS>

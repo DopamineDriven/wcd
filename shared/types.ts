@@ -1,5 +1,4 @@
 import { Collection, ObjectId } from "mongodb";
-import { ParsedUrlQuery } from 'querystring';
 
 export type UriString = string;
 
