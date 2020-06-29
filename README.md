@@ -341,4 +341,5 @@ module.exports = {
 };
 
 ```
-- optimizing cont
+- Next.js, Apollo Client/Server, and TypeScript on a single Express app
+	- https://dev.to/givehug/next-js-apollo-client-and-server-on-a-single-express-app-55l6
