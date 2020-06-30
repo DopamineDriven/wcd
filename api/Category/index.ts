@@ -6,5 +6,5 @@ export const fetchPostsByCategory = async (
 	categoryId: EntityId
 ): Promise<Post[]> => {
 	const res = await fetch(`${config.baseUrl}/categories/${categoryId}`);
-	return res.json();
+	return await res.json();
 };

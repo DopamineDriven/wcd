@@ -12,6 +12,12 @@ npm run seed
 ```git
 npm run dev
 ```
+## New Next Methods
+- https://nextjs.org/blog/next-9-3 (03-09-2020)
+- https://nextjs.org/blog/next-9-4 (05-11-2020)
+
+## TypeScript & Styled Components Next.js Example
+- https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components
 
 ## ESLint+TS in Next -- Analyzing Overhead Performance Cost Incurrence
 
@@ -349,3 +355,40 @@ module.exports = {
 - Wasted renders
 - Bundle size
 - Expensive operations 
+
+- on configuring babel with styled components
+	- https://github.com/styled-components/babel-plugin-styled-components/issues/78
+```json
+{
+    "presets": [
+        [
+            "next/babel",
+            {
+                "preset-env": {},
+                "transform-runtime": {},
+                "styled-jsx": {},
+                "class-properties": {}
+            }
+        ]
+    ],
+    "plugins": [
+        [
+            "babel-plugin-styled-components",
+            {
+                "ssr": true,
+                "displayName": true,
+                "preprocess": false
+            }
+        ]
+    ]
+}
+```
+- Ordering matters for Plugins/Presets
+	- Plugins run before presets
+	- Plugin ordering is first to last
+	- Preset ordring is last to first
+	- https://babeljs.io/docs/en/6.26.3/plugins#plugin-preset-ordering
+
+- The super tiny compiler
+	- walks you through writing a custom compiler to parse code into an AST
+	- https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
