@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import { Center, ContainerFooter } from "../Style";
 
-export const Footer: FunctionComponent = () => {
+export const Footer: FC = () => {
     const currentYear = new Date().getFullYear();
 
     return (

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { ContainerLoader } from "../Style";
 
-export const Loader: FunctionComponent = () => {
+export const Loader: FC = () => {
 	return (
 		<ContainerLoader>
 			<LoadingOutlined spin={true} />

@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import { Section } from "../Section";
-import { Category, Post } from "../../shared/types";
+import { Category, Post } from "../../shared";
 
 interface FeedProps {
     categories: Category[];
@@ -8,7 +8,7 @@ interface FeedProps {
 }
 
 
-export const Feed: FunctionComponent<FeedProps> = ({ categories, posts }) => {
+export const Feed: FC<FeedProps> = ({ categories, posts }) => {
     return (
         <>
             {categories.map((currentCategory) => {

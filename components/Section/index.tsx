@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
-import { Post as PostType } from "../../shared/types";
+import { Post as PostType } from "../../shared";
 import { PostCard } from "../PostCard";
 import { GridSection, LinkSection, TitleSection } from "../Style";
 
@@ -10,7 +10,7 @@ interface SectionProps {
 	isCompact?: boolean;
 }
 
-export const Section: FunctionComponent<SectionProps> = ({
+export const Section: FC<SectionProps> = ({
 	title,
 	posts,
 	isCompact = false

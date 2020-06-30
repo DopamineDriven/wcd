@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import { Post } from "../../shared";
 import { ContainerBreadcrumbs } from "../Style";
@@ -7,7 +7,7 @@ interface BreadcrumbsProps {
 	post: Post;
 }
 
-export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({ post }) => {
+export const Breadcrumbs: FC<BreadcrumbsProps> = ({ post }) => {
 	return (
 		<ContainerBreadcrumbs>
 			<Link href="/">

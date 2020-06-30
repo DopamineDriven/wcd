@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
-import { Post as PostType } from "../../shared/types";
+import { Post as PostType } from "../../shared";
 import {
 	CardPostCard,
 	FigurePostCard,
@@ -12,7 +12,7 @@ interface PostCardProps {
 	post: PostType;
 }
 
-export const PostCard: FunctionComponent<PostCardProps> = ({ post }) => {
+export const PostCard: FC<PostCardProps> = ({ post }) => {
 	return (
 		<Link href="/post/[id]" as={`/post/${post.id}`} passHref={true}>
 			<CardPostCard>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { fetchPostsByCategory } from "../../api";
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 	return { paths, fallback: true };
 };
 
-const Category: FunctionComponent<CategoryProps> = ({ posts }) => {
+const Category: FC<CategoryProps> = ({ posts }) => {
 	const router = useRouter();
 
 	return router.isFallback ? (
