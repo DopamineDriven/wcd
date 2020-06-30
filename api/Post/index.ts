@@ -4,5 +4,5 @@ import { config } from "../Config";
 
 export const fetchPost = async (id: EntityId): Promise<Post> => {
     const res = await fetch(`${config.baseUrl}/posts/${id}`);
-    return res.json();
+    return await res.json();
 };

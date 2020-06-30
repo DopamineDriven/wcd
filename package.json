@@ -23,7 +23,7 @@
 	},
 	"keywords": [],
 	"author": "Andrew Ross, Joe Shields",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/DopamineDriven/wcd/issues"
 	},

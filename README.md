@@ -383,6 +383,16 @@ module.exports = {
     ]
 }
 ```
+```json
+	"babel": {
+		"presets": [
+			"babel-preset-react-app",
+			"next/babel",
+			"@zeit/next-typescript/babel"
+		]
+	},
+```
+
 - Ordering matters for Plugins/Presets
 	- Plugins run before presets
 	- Plugin ordering is first to last
