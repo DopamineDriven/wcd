@@ -2,8 +2,11 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
       "module": "ESNext",
-      "outDir": "build",
+      "target": "es5",
+      "outDir": ".next/production-server",
+      "isolatedModules": false,
       "noEmit": false
     },
-    "include": ["./server"]
+    "include": ["server/**/*.ts"]
   }
+  

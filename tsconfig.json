@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
+		"target": "es5",
 		"lib": ["dom", "dom.iterable", "ESNext"],
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -19,7 +19,10 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
-		"outDir": "build"
+		"typeRoots": [
+			"./node_modules/@types"
+		],
+		"outDir": "./build"
 	},
 	"exclude": ["node_modules"],
 	"include": ["next-env.d.ts", "**/*.ts", "**/*tsx"]

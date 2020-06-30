@@ -8,8 +8,9 @@
 	},
 	"scripts": {
 		"check-types": "tsc",
-		"build": "next build",
+		"build": "rm -rf .next && next build && tsc --project tsconfig.server.json",
 		"build:prod": "run-p exe:dev build",
+		"client": "next",
 		"start": "next start",
 		"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
 		"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
