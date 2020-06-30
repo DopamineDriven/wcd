@@ -27,6 +27,8 @@ export const getStaticPaths = async () => {
 const Post: FC<PostProps> = ({ post }) => {
 	const router = useRouter();
 
+	// try:
+	// return !post || !posts ? <Loader /> : <PostBody post={post} />
 	return router.isFallback ? <Loader /> : <PostBody post={post} />;
 };
 

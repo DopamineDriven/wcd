@@ -1,12 +1,16 @@
 import React, { FC } from "react";
-import { LoadingOutlined } from "@ant-design/icons";
+import { Spin, Space } from 'antd';
 import { ContainerLoader } from "../Style";
 
 export const Loader: FC = () => {
 	return (
 		<ContainerLoader>
-			<LoadingOutlined spin={true} />
-            Loading...
+			<Space size="middle">
+				<Spin  
+					size="large"
+					spinning={true}
+				/>
+			</Space>
 		</ContainerLoader>
 	);
 };
