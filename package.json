@@ -3,9 +3,6 @@
 	"version": "1.0.0",
 	"description": "🐜🐜🐜BUILD🐜🐜🐜",
 	"main": "index.ts",
-	"engines": {
-		"node": "14.4.0"
-	},
 	"scripts": {
 		"check-types": "tsc",
 		"build": "rm -rf .next && next build && tsc --project tsconfig.server.json",
