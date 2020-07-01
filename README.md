@@ -12,6 +12,14 @@ npm run seed
 ```git
 npm run dev
 ```
+## Deploy with heroku
+- include after "scripts"
+```json
+{
+	"heroku-run-build-script": "true"
+}
+```
+
 ## New Next Methods
 - https://nextjs.org/blog/next-9-3 (03-09-2020)
 - https://nextjs.org/blog/next-9-4 (05-11-2020)
