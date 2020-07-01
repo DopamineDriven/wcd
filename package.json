@@ -3,15 +3,12 @@
 	"version": "1.0.0",
 	"description": "🐜🐜🐜BUILD🐜🐜🐜",
 	"main": "index.ts",
-	"engines": {
-		"node": "14.4.0"
-	},
 	"scripts": {
 		"check-types": "tsc",
-		"build": "rm -rf .next && next build && tsc --project tsconfig.server.json",
+		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
 		"build:prod": "run-p exe:dev build",
 		"client": "next",
-		"prod": "next export",
+		"build": "next build && tsc --project tsconfig.server.json",
 		"start": "next start",
 		"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
 		"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
@@ -19,7 +16,6 @@
 		"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\""
 	},
-	"heroku-run-prod-script": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/DopamineDriven/wcd.git"
