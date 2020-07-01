@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "🐜🐜🐜BUILD🐜🐜🐜",
 	"main": "index.ts",
+	"proxy": "http://localhost:7777",
 	"engines": {
 		"node": "14.4.0"
 	},

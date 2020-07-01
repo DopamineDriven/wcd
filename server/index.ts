@@ -7,6 +7,7 @@ import compression from "compression";
 import cors from "cors";
 import { connectDatabase } from "../database";
 import { Post, Category } from "../shared";
+const PORT = process.env.PORT || 7777;
 // import next from "next";
 // const dev = process.env.NODE_ENV !== "production";
 // const application = next({ dev });
@@ -42,10 +43,10 @@ const mount = async (app: Application) => {
 		return res.json(categoryPosts);
 	});
 
-	app.listen(process.env.PORT);
+	app.listen(PORT);
 	console.log(`[app]: http://localhost:3000`);
-	console.log(`[app]: http://localhost:${process.env.PORT}/posts`);
-	console.log(`[app]: http://localhost:${process.env.PORT}/categories`);
+	console.log(`[app]: http://localhost:${PORT}/posts`);
+	console.log(`[app]: http://localhost:${PORT}/categories`);
 };
 
 mount(express());
