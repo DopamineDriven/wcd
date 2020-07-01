@@ -15,6 +15,7 @@
 		"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\""
 	},
+	"heroku-run-build-script": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/DopamineDriven/wcd.git"
