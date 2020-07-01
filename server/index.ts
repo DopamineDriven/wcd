@@ -1,5 +1,6 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+// import * as dotenv from "dotenv";
+// dotenv.config();
+require("dotenv").config();
 import express, { Application } from "express";
 import Helmet from "helmet";
 import compression from "compression";
