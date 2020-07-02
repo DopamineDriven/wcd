@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { fetchPost } from "../../api";
 import { Post as PostType } from "../../shared";
@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 	return { paths, fallback: true };
 };
 
-const Post: FC<PostProps> = ({ post }) => {
+const Post: FC<PostProps & NextPage> = ({ post }) => {
 	const router = useRouter();
 
 	// try:

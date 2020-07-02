@@ -1,5 +1,15 @@
 # 🐜 Windy City Devs LLC 🐜
 
+## Next Examples
+- https://github.com/vercel/next.js/tree/canary/examples
+
+## Consider incorporating
+- swr.now.sh
+	- stale-while-revalidate
+	- TypeScript ready
+	- SSR support
+	- hmm...
+
 ## Updating Post data in ./cloud/seed.ts
 
 - each time an update is made run the following in order

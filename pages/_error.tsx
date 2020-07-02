@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { NextPage } from "next";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -31,7 +32,7 @@ const LinkSOS = styled.a`
 	width: 100%;
 `;
 
-const NotFound: FC = () => {
+const NotFound: FC & NextPage = () => {
 	return (
 		<ContainerSOS>
 			<MainSOS>404</MainSOS>

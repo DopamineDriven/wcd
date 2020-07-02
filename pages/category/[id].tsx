@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { fetchPostsByCategory } from "../../api";
 import { Post, categoryPaths as paths } from "../../shared";
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 	return { paths, fallback: true };
 };
 
-const Category: FC<CategoryProps> = ({ posts }) => {
+const Category: FC<CategoryProps & NextPage> = ({ posts }) => {
 	const router = useRouter();
 
 	return router.isFallback ? (

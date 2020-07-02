@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { Category, Post } from "../shared/types";
 import { Feed } from "../components";
@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	return { props: { posts, categories } };
 }
 
-export default function Front({ categories, posts }: FrontProps) {
+export default function Front({ categories, posts }: FrontProps & NextPage) {
 	return (
 		<>
 			<Head>
