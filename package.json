@@ -2,10 +2,10 @@
 	"name": "wcd",
 	"version": "1.0.0",
 	"description": "🐜🐜🐜BUILD🐜🐜🐜",
-	"main": "index.ts",
+	"main": "server/index.ts",
 	"proxy": "http://localhost:7777",
 	"scripts": {
-		"check-types": "tsc",
+		"tsc": "tsc -p tsconfig-cjs.json",
 		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
 		"production": "run-p prod:productionserver prod:server",
 		"prod:productionserver": "node ./.next/production-server/server/index.js",
@@ -25,7 +25,7 @@
 		"export": "next export",
 		"vercel:export": "npm run export"
 	},
-	"heroku-run-build-script": true,
+	"heroku-run-start-script": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/DopamineDriven/wcd.git"
@@ -62,6 +62,8 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"serve": "^11.3.2",
+		"siginfo": "^2.0.0",
+		"stackback": "0.0.2",
 		"styled-components": "^5.1.1"
 	},
 	"devDependencies": {
@@ -84,7 +86,8 @@
 		"eslint-plugin-react": "^7.20.0",
 		"npm-run-all": "^4.1.5",
 		"ts-node": "^8.10.2",
-		"typescript": "^3.9.5"
+		"typescript": "^3.9.5",
+		"why-is-node-running": "^2.2.0"
 	},
 	"root": true
 }

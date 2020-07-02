@@ -30,7 +30,7 @@ const nextConfig = {
 	}
 };
 module.exports = {
-	pageExtensions: ["json", "jsx", "js", "ts", "tsx"]
+	pageExtensions: ["json", "jsx", "js", "ts", "tsx", "cjs"]
 };
 
 module.exports = withConfig(

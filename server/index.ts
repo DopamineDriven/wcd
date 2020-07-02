@@ -1,5 +1,4 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
 // import { createServer } from "http";
 // import { parse } from "url";
 import express, { Application, Request, Response } from "express";
@@ -8,6 +7,8 @@ import compression from "compression";
 import cors from "cors";
 import { connectDatabase } from "../utils";
 import { Post, Category } from "../shared";
+// import log from "../utils/cjs/";
+// const net = require("net");
 // import routes from "./routes";
 // import next from "next";
 // const dev = process.env.NODE_ENV !== "production";
@@ -44,12 +45,24 @@ const mount = async (app: Application) => {
 		const categoryPosts = [...foundPost, ...foundPost, ...foundPost];
 		return res.json(categoryPosts);
 	});
-
+	
 	app.listen(PORT);
 	console.log(`[app]: http://localhost:${3000}`);
 	console.log(`[app]: http://localhost:${PORT}/posts`);
 	console.log(`[app]: http://localhost:${PORT}/categories`);
 };
+
+// function createServer () {
+// 	const server = net.createServer()
+// 	setInterval(() => {}, 1000)
+// 	server.listen(0)
+// }
+
+// createServer()
+
+// setTime(function () {
+// 	log
+// }, 10000)
 
 mount(express());
 

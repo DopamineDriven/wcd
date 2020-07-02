@@ -7,3 +7,5 @@ declare namespace Node {
         DB_URL: string;
     }
 }
+
+declare const log: any = () => 'why-is-node-running';
