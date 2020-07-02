@@ -1,4 +1,5 @@
-require("dotenv").config();
+import * as dotenv from "dotenv";
+dotenv.config();
 // import { createServer } from "http";
 // import { parse } from "url";
 import express, { Application, Request, Response } from "express";

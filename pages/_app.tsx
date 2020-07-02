@@ -7,6 +7,10 @@ import { Center, Footer, Header } from "../components";
 import { GlobalStyle, theme } from "../shared";
 import "antd/dist/antd.css";
 
+export function reportWebVitals(metric: any) {
+	console.log(metric)
+}
+
 export default function MyApp({ Component, pageProps }: AppProps & NextPage) {
 	return (
 		<ThemeProvider theme={theme}>
@@ -25,5 +29,6 @@ export default function MyApp({ Component, pageProps }: AppProps & NextPage) {
 			</main>
 			<Footer />
 		</ThemeProvider>
-	);
+	)
 }
+

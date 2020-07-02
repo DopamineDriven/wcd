@@ -9,3 +9,4 @@ declare namespace Node {
 }
 
 declare const log: any = () => 'why-is-node-running';
+

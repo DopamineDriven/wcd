@@ -1,14 +1,40 @@
 # 🐜 Windy City Devs LLC 🐜
 
+```json
+{
+"scripts": {
+	"tsc": "tsc -p tsconfig-cjs.json",
+	"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
+	"production": "run-p prod:productionserver prod:server",
+	"prod:productionserver": "node ./.next/production-server/server/index.js",
+	"prod:server": "node ./.next/server/init-server.js",
+	"build:prod": "cross-env NODE_ENV=production && run-s prebuild build export start",
+	"client": "next",
+	"analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
+	"watch": "./node_modules/.bin/tsc-watch --onSuccess -f \"ts-node .\"",
+	"vercel:build": "next build && tsc --project tsconfig.server.json",
+	"prebuild": "cross-env NODE_ENV=production && node ./scripts/env-check.js && rimraf build",
+	"build": "rm -rf .next && run-p serve vercel:build watch",
+	"prestart": "npm run export",
+	"start": "serve out",
+	"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
+	"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
+	"serve": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" --project tsconfig.server.json server/index.ts",
+	"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+	"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+	"export": "next export",
+	"vercel:export": "npm run export"
+},
+}
+```
+
 ## Next Examples
+
 - https://github.com/vercel/next.js/tree/canary/examples
 
 ## Consider incorporating
-- swr.now.sh
-	- stale-while-revalidate
-	- TypeScript ready
-	- SSR support
-	- hmm...
+
+- swr.now.sh - stale-while-revalidate - TypeScript ready - SSR support - hmm...
 
 ## Updating Post data in ./cloud/seed.ts
 
