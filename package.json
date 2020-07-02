@@ -4,9 +4,6 @@
 	"description": "🐜🐜🐜BUILD🐜🐜🐜",
 	"main": "index.ts",
 	"proxy": "http://localhost:7777",
-	"engines": {
-		"node": "14.4.0"
-	},
 	"scripts": {
 		"check-types": "tsc",
 		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
@@ -17,13 +14,16 @@
 		"client": "next",
 		"analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
 		"vercel:build": "next build && tsc --project tsconfig.server.json",
-		"build": "run-p serve vercel:build",
-		"start": "next start",
+		"build": "rm -rf .next && run-p serve vercel:build",
+		"prestart": "npm run export",
+		"start": "serve out",
 		"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
 		"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
 		"serve": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" --project tsconfig.server.json server/index.ts",
 		"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
-		"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\""
+		"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"export": "next export",
+		"vercel:export": "npm run export"
 	},
 	"heroku-run-build-script": true,
 	"repository": {
@@ -61,6 +61,7 @@
 		"path": "^0.12.7",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"serve": "^11.3.2",
 		"styled-components": "^5.1.1"
 	},
 	"devDependencies": {

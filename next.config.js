@@ -1,6 +1,6 @@
 const withPlugins = require("next-compose-plugins");
-const withTypescript = require("@zeit/next-typescript");
-const withCSS = require("@zeit/next-css");
+// const withTypescript = require("@zeit/next-typescript");
+// const withCSS = require("@zeit/next-css");
 const withBundleAnalyzer = require("@next/bundle-analyzer");
 const nextRuntimeDotenv = require("next-runtime-dotenv");
 
@@ -36,14 +36,14 @@ module.exports = {
 module.exports = withConfig(
 	withPlugins(
 		[
-			[withCSS],
-			[
-				withTypescript({
-					webpack(config, _options) {
-						return config;
-					}
-				})
-			],
+			// [withCSS],
+			// [
+			// 	withTypescript({
+			// 		webpack(config, _options) {
+			// 			return config;
+			// 		}
+			// 	})
+			// ],
 			[
 				withBundleAnalyzer({
 					enabled: process.env.ANALYZE === "true"

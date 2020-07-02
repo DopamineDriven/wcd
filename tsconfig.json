@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"target": "es5",
-		"lib": ["dom", "dom.iterable", "ESNext"],
+		"lib": ["dom", "ESNext"],
+		"baseUrl": ".",
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -24,6 +25,6 @@
 		],
 		"outDir": "./build"
 	},
-	"exclude": ["node_modules", ".next"],
+	"exclude": ["node_modules", ".next", "next.config.js", "dist"],
 	"include": ["next-env.d.ts", "**/*.ts", "**/*tsx"]
 }

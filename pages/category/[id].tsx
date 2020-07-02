@@ -20,7 +20,7 @@ export const getStaticProps = async ({ params }: Params & GetStaticProps) => {
 }
 
 export const getStaticPaths = async () => {
-	return { paths, fallback: true };
+	return { paths, fallback: false };
 };
 
 const Category: FC<CategoryProps & NextPage> = ({ posts }) => {

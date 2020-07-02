@@ -7,7 +7,7 @@
 					{ "ssr": true, "displayName": true, "preprocess": false }
 				]
 			],
-			"presets": ["next/babel", "@zeit/next-typescript/babel"]
+			"presets": ["next/babel"]
 		},
 		"production": {
 			"plugins": [
@@ -16,7 +16,7 @@
 					{ "ssr": true, "displayName": true, "preprocess": false }
 				]
 			],
-			"presets": ["next/babel",  "@zeit/next-typescript/babel"]
+			"presets": ["next/babel"]
 		}
 	},
 	"plugins": [

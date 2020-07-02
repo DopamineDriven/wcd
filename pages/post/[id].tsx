@@ -21,7 +21,7 @@ export const getStaticProps = async ({ params }: Params & GetStaticProps) => {
 }
 
 export const getStaticPaths = async () => {
-	return { paths, fallback: true };
+	return { paths, fallback: false };
 };
 
 const Post: FC<PostProps & NextPage> = ({ post }) => {
