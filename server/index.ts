@@ -80,7 +80,10 @@ const mount = async (app: Application) => {
 	console.log(`[app]: http://localhost:${PORT}/categories`);
 };
 
-mount(express());
+const myArgs = process.argv.slice(2);
+console.log(`arguments: ${myArgs}`);
+
+mount(express()); 
 
 
 // import log from "../utils/cjs/";
