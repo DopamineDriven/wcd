@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-import 'ts-polyfill';
+import "ts-polyfill";
 // import 'ts-polyfill/lib/es2015';
 // import 'ts-polyfill/lib/es2016-array-include';
 // import 'ts-polyfill/lib/es2017-string';
@@ -20,11 +20,13 @@ import express, { Application, Request, Response } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
-// import { connectDatabase } from "../utils";
-// import { Post, Category } from "../shared";
-import posts from "./posts.json";
-import categories from "./categories.json";
+import http from "http";
+import { connectDatabase } from "../utils";
+import { Post, Category } from "../shared";
+// import posts from "./posts.json";
+// import categories from "./categories.json";
 import bodyParser from "body-parser";
+// import { createTerminus, HealthCheckError } from "@godaddy/terminus";
 // import { createServer } from "http";
 // import { parse } from "url";
 // import next from "next";
@@ -43,13 +45,12 @@ const PORT = parseInt(<string>process.env.PORT, 10) || 3000;
 
 // })
 
-
 const mount = async (app: Application) => {
 	// application.prepare();
-	// const db = await connectDatabase();
-	// const posts: Post[] = await db.posts.find({}).toArray();
-	// console.log(posts);
-	// const categories: Category[] = ["Technology", "Science", "People"];
+	const db = await connectDatabase();
+	const posts: Post[] = await db.posts.find({}).toArray();
+	console.log(posts);
+	const categories: Category[] = ["Technology", "Science", "People"];
 
 	app.use(compression(), bodyParser.json(), cors(), Helmet());
 
@@ -73,18 +74,81 @@ const mount = async (app: Application) => {
 		const categoryPosts = [...foundPost, ...foundPost, ...foundPost];
 		return res.json(categoryPosts);
 	});
-	
-	app.listen(PORT);
+
+	app.get("/", (_req: Request, res: Response) => {
+		res.json({ ping: true });
+	});
+	const server = http.createServer(app);
+
+	server.listen(PORT);
 	console.log(`[app]: http://localhost:${PORT}`);
 	console.log(`[app]: http://localhost:${PORT}/posts`);
 	console.log(`[app]: http://localhost:${PORT}/categories`);
+	console.log(`[server]: running...`);
+
+	setInterval(
+		() =>
+			server.getConnections((_err, connections) =>
+				console.log(`${connections} connections currently open`)
+			),
+		1000
+	);
+
+	process.on("SIGTERM", shutDown);
+	process.on("SIGINT", shutDown);
+
+	let connections: any = [];
+
+	server.on("connection", (connection) => {
+		connections.push(connection);
+		connection.on(
+			"close",
+			() => (connections = connections.filter((curr: any) => curr !== connection))
+		);
+	});
+
+	function shutDown() {
+		console.log("Received kill signal, shutting down gracefully");
+		server.close(() => {
+			console.log("Closed out remaining connections");
+			process.exit(0);
+		});
+
+		setTimeout(() => {
+			console.error(
+				"Could not close connections in time, forcefully shutting down"
+			);
+			process.exit(1);
+		}, 10000);
+
+		connections.forEach((curr: any) => curr.end());
+		setTimeout(() => connections.forEach((curr: any) => curr.destroy()), 5000);
+	}
+
+	// process.on('SIGTERM', shutDown);
+	// process.on('SIGINT', shutDown)
 };
 
 const myArgs = process.argv.slice(2);
 console.log(`arguments: ${myArgs}`);
+// if (process.argv = ["/node12/bin/node", "node12/bin/npm","run","conc:build"] && process.exit(0)) {
+// 	process.exit(0)
+// }
 
-mount(express()); 
+mount(express());
 
+// 08:41:03.712
+// [0] [now] [mutex] process.argv is ["/node12/bin/node","/node12/bin/npm","run","serve"]
+// 08:41:03.713
+// [0] [now] [mutex] process.cwd is "/vercel/791e3741"
+// 08:41:03.713
+// [0] [now] [mutex] command is "run"
+// 08:41:03.714
+// [1] [now] [mutex] process.argv is ["/node12/bin/node","/node12/bin/npm","run","conc:build"]
+// 08:41:03.714
+// [1] [now] [mutex] process.cwd is "/vercel/791e3741"
+// 08:41:03.714
+// [1] [now] [mutex] command is "run"
 
 // import log from "../utils/cjs/";
 // const net = require("net");
