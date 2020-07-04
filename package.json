@@ -23,7 +23,7 @@
 		"next:build": "rm -rf .next && cross-env run-p serve vercel:build",
 		"prestart": "npm run export",
 		"localprod": "next start",
-		"p:build": "concurrently --success first \"cross-env npm run serve\" \"cross-env npm run conc:build\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"p:build": "concurrently --kill-others --success first \"cross-env npm run serve\" \"cross-env npm run conc:build\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"conc:build": "next build",
 		"build": "run-p -r serve conc:build",
 		"start": "serve out",
