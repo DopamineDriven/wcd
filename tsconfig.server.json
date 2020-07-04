@@ -1,12 +1,12 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-      "module": "ESNext",
-      "target": "ES5",
-      "outDir": "dist",
+      "module": "CommonJS",
+      "sourceMap": true,
+      "outDir": "bin/",
       "isolatedModules": false,
       "noEmit": false
     },
-    "include": ["server/**/*.ts"]
+    "include": ["server/**/*.ts", "shared/**/*.ts"]
   }
   

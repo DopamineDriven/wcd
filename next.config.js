@@ -3,15 +3,15 @@ const withPlugins = require("next-compose-plugins");
 // const withCSS = require("@zeit/next-css");
 const withBundleAnalyzer = require("@next/bundle-analyzer");
 const nextRuntimeDotenv = require("next-runtime-dotenv");
-const task = process.env.npm_lifecycle_event.startsWith("pre")
-	? process.env.npm_lifecycle_event.slice(3)
-	: process.env.npm_lifecycle_event;
-const packageJSON = require("./package.json");
-const { on, argv } = require("process");
-const availableEnvironments = Object.keys(packageJSON.scripts)
-	.filter((key) => key.startsWith(task))
-	.map((key) => key.split(":")[1])
-	.filter((key) => key);
+// const task = process.env.npm_lifecycle_event.startsWith("pre")
+// 	? process.env.npm_lifecycle_event.slice(3)
+// 	: process.env.npm_lifecycle_event;
+// const packageJSON = require("./package.json");
+// const { on, argv } = require("process");
+// const availableEnvironments = Object.keys(packageJSON.scripts)
+// 	.filter((key) => key.startsWith(task))
+// 	.map((key) => key.split(":")[1])
+// 	.filter((key) => key);
 
 
 const withConfig = nextRuntimeDotenv({

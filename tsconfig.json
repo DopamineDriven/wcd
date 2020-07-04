@@ -33,7 +33,8 @@
 		"dist",
 		"cli.mjs",
 		"include.cjs",
-		"index.cjs"
+    "index.cjs",
+    "bin"
 	],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*tsx", "server/terminus.js"]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*tsx"]
 }

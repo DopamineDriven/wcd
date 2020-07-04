@@ -1,5 +1,4 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
 import "ts-polyfill";
 // import 'ts-polyfill/lib/es2015';
 // import 'ts-polyfill/lib/es2016-array-include';
@@ -28,9 +27,11 @@ import { Post, Category } from "../shared";
 import bodyParser from "body-parser";
 // import { createTerminus, HealthCheckError } from "@godaddy/terminus";
 // import { createServer } from "http";
-// import { parse } from "url";
+import { parse as parseUrl } from "url";
 // import next from "next";
 const PORT = parseInt(<string>process.env.PORT, 10) || 3000;
+import nextapp from "./routes";
+const handler = nextapp.getRequestHandler();
 // const dev = process.env.NODE_ENV !== "production";
 // const app = next({ dev });
 // const handle = app.getRequestHandler();
@@ -78,21 +79,34 @@ const mount = async (app: Application) => {
 	app.get("/", (_req: Request, res: Response) => {
 		res.json({ ping: true });
 	});
-	const server = http.createServer(app);
-
-	server.listen(PORT);
-	console.log(`[app]: http://localhost:${PORT}`);
-	console.log(`[app]: http://localhost:${PORT}/posts`);
-	console.log(`[app]: http://localhost:${PORT}/categories`);
-	console.log(`[server]: running...`);
-
-	process.on("SIGTERM", (_) => {
-		console.log(`Process ${process.pid} received a SIGTERM signal`);
-		server.close(() => {
-			process.exit(0)
-		})
+	app.get("/*", (req: Request, res: Response) => {
+		const { pathname, query } = parseUrl(req.url, true);
+		if (pathname === "category" || pathname === "post")
+			nextapp.render(req, res, pathname, query);
+		else {
+			handler(req, res, parseUrl(req.url, true));
+		}
 	});
+	try {
+		const server = http.createServer(app);
+		await nextapp.prepare()
+		server.listen(PORT);
+		console.log(`[app]: http://localhost:${PORT}`);
+		console.log(`[app]: http://localhost:${PORT}/posts`);
+		console.log(`[app]: http://localhost:${PORT}/categories`);
+		console.log(`[server]: running...`);
+		process.on("SIGTERM", () => {
+			console.info("SIGTERM signal received");
+		});
+	
+		process.on("SIGTERM", () => {
+			console.log(`Process ${process.pid} received a SIGTERM signal`);
+			server.close(() => {
+				process.exit(0);
+			});
+		});
 
+		
 	setInterval(
 		() =>
 			server.getConnections((_err, connections) =>
@@ -100,9 +114,6 @@ const mount = async (app: Application) => {
 			),
 		1000
 	);
-
-	process.on("SIGTERM", shutDown);
-	process.on("SIGINT", shutDown);
 
 	let connections: any = [];
 
@@ -115,7 +126,7 @@ const mount = async (app: Application) => {
 		);
 	});
 
-	function shutDown() {
+	const shutDown = async () => {
 		console.log("Received kill signal, shutting down gracefully");
 		server.close(() => {
 			console.log("Closed out remaining connections");
@@ -133,12 +144,20 @@ const mount = async (app: Application) => {
 		setTimeout(() => connections.forEach((curr: any) => curr.destroy()), 5000);
 	}
 
+	process.on("SIGTERM", shutDown);
+	process.on("SIGINT", shutDown);
+	} catch (error) {
+		throw new Error(`there was an error ${error}`)
+	}
+
 	// process.on('SIGTERM', shutDown);
 	// process.on('SIGINT', shutDown)
 };
-
-const myArgs = process.argv.slice(2);
-console.log(`arguments: ${myArgs}`);
+process.on("SIGTERM", () => {
+	console.info("SIGTERM signal received");
+});
+// const myArgs = process.argv.slice(2);
+// console.log(`arguments: ${myArgs}`);
 // if (process.argv = ["/node12/bin/node", "node12/bin/npm","run","conc:build"] && process.exit(0)) {
 // 	process.exit(0)
 // }

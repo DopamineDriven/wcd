@@ -1,7 +1,6 @@
-import nextRoutes from "next-routes";
+import next from 'next';
 
-const routes = new nextRoutes();
+const dev = process.env.NODE_ENV !== 'production';
+const nextapp = next({ dev });
 
-routes.add("/", "/categories" && "/categories/:id", "/posts" && "/posts/:id");
-
-export default routes;
+export default nextapp;
