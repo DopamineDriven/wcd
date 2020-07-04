@@ -9,10 +9,8 @@ const availableEnvironments = Object.keys(packageJSON.scripts)
 	.map((key) => key.split(":")[1])
 	.filter((key) => key);
 
-if (packageJSON.scripts.build(message == "Completed Successfully")) {
-	setTimeout(() => {
-		process.exit(0);
-	}, 10000);
+if (target.packageJSON.scripts.build.event.MessageEvent = new MessageEvent === "Completed Successfully") {
+	return setTimeout(() => {}, 10000, process.exit(0));
 }
 
 // if (packageJSON.scripts.build == "Compiled successfully") {

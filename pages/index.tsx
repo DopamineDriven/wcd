@@ -1,3 +1,4 @@
+import 'ts-polyfill';
 import React from "react";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";

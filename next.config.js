@@ -6,7 +6,7 @@ const nextRuntimeDotenv = require("next-runtime-dotenv");
 const task = process.env.npm_lifecycle_event.startsWith("pre")
 	? process.env.npm_lifecycle_event.slice(3)
 	: process.env.npm_lifecycle_event;
-const packageJSON = require("../package.json");
+const packageJSON = require("./package.json");
 const { on, argv } = require("process");
 const availableEnvironments = Object.keys(packageJSON.scripts)
 	.filter((key) => key.startsWith(task))

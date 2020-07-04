@@ -1,21 +1,32 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-// import { createServer } from "http";
-// import { parse } from "url";
+import 'ts-polyfill';
+// import 'ts-polyfill/lib/es2015';
+// import 'ts-polyfill/lib/es2016-array-include';
+// import 'ts-polyfill/lib/es2017-string';
+// import 'ts-polyfill/lib/es2017-object';
+// import 'ts-polyfill/lib/es2017-typed-arrays';
+// import 'ts-polyfill/lib/es2018-async-iterable';
+// import 'ts-polyfill/lib/es2018-promise';
+// import 'ts-polyfill/lib/es2019-array';
+// import 'ts-polyfill/lib/es2019-object';
+// import 'ts-polyfill/lib/es2019-string';
+// import 'ts-polyfill/lib/es2019-symbol';
+// import 'ts-polyfill/lib/es2020-global-this';
+// import 'ts-polyfill/lib/es2020-promise';
+// import 'ts-polyfill/lib/es2020-string';
+// import 'ts-polyfill/lib/es2020-symbol-wellknown';
 import express, { Application, Request, Response } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
 import { connectDatabase } from "../utils";
 import { Post, Category } from "../shared";
-// import log from "../utils/cjs/";
-// const net = require("net");
-// import routes from "./routes";
-// import next from "next";
-// const dev = process.env.NODE_ENV !== "production";
-// const app = next({ dev });
-// const handler = routes.getRequestHandler(app);
+// import { createServer } from "http";
+// import { parse } from "url";
 const PORT = parseInt(<string>process.env.PORT || "3000", 10);
+
+
 
 const mount = async (app: Application) => {
 	// application.prepare();
@@ -53,6 +64,17 @@ const mount = async (app: Application) => {
 	console.log(`[app]: http://localhost:${PORT}/categories`);
 };
 
+mount(express());
+
+
+// import log from "../utils/cjs/";
+// const net = require("net");
+// import routes from "./routes";
+// import next from "next";
+// const dev = process.env.NODE_ENV !== "production";
+// const app = next({ dev });
+// const handler = routes.getRequestHandler(app);
+
 // function createServer () {
 // 	const server = net.createServer()
 // 	setInterval(() => {}, 1000)
@@ -64,9 +86,6 @@ const mount = async (app: Application) => {
 // setTime(function () {
 // 	log
 // }, 10000)
-
-mount(express());
-
 // import * as dotenv from "dotenv";
 // dotenv.config();
 // import routes from "./routes";

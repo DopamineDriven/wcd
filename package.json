@@ -16,10 +16,11 @@
 		"client": "next",
 		"analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
 		"env-scripts": "ts-node ./scripts/env-check.js",
-		"watch": "tsc-watch --onSuccess \" exit\"",
+		"watch": "./node_modules/.bin/tsc-watch --onSuccess \" exit\"",
 		"vercel:build": "next build && tsc --project tsconfig.server.json",
-		"build": "rm -rf .next && run-p serve vercel:build watch",
+		"build": "rm -rf .next && cross-env run-p serve vercel:build watch",
 		"prestart": "npm run export",
+		"localprod": "next start",
 		"start": "serve out",
 		"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
 		"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
@@ -68,7 +69,8 @@
 		"serve": "^11.3.2",
 		"siginfo": "^2.0.0",
 		"stackback": "0.0.2",
-		"styled-components": "^5.1.1"
+		"styled-components": "^5.1.1",
+		"ts-polyfill": "^3.8.2"
 	},
 	"devDependencies": {
 		"@types/compression": "^1.7.0",

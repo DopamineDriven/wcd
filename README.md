@@ -27,7 +27,22 @@
 },
 }
 ```
+## Measuring performance
+- https://nextjs.org/docs/advanced-features/measuring-performance
 
+## Toggle Script Messages to exit on success
+- https://github.com/vercel/next.js/issues/4647
+- https://nodejs.org/api/process.html#process_event_exit
+- https://nodejs.org/api/process.html#process_process_exit_code
+- https://github.com/nodejs/node-v0.x-archive/blob/master/doc/api/process.markdown#exit-codes
+- https://github.com/microsoft/TypeScript/issues/12996
+- https://corgibytes.com/blog/2017/04/18/npm-tips/
+- https://stackabuse.com/how-to-exit-in-node-js/
+- https://nodejs.org/api/process.html#process_process_argv
+- https://github.com/gilamran/tsc-watch/blob/master/release.js
+- https://openbase.io/js/tsc-watch
+- https://github.com/gilamran/tsc-watch/blob/master/package.json
+- https://www.npmjs.com/package/tsc-watch
 ## Next Examples
 
 - https://github.com/vercel/next.js/tree/canary/examples

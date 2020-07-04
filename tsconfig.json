@@ -1,46 +1,39 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "ESNext"
-    ],
-    "baseUrl": ".",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "removeComments": false,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "sourceMap": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-	"outDir": "./build",
-  },
-  "exclude": [
-    "node_modules",
-    ".next",
-    "next.config.js",
-    "dist",
-    "cli.mjs",
-    "include.cjs",
-    "index.cjs",
-    ""
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*tsx"
-  ]
+	"compilerOptions": {
+		"target": "ES5",
+		"lib": [
+			"DOM",
+			"DOM.Iterable",
+			"ESNext"
+		],
+		"baseUrl": ".",
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"removeComments": false,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"typeRoots": ["./node_modules/@types"]
+	},
+	"exclude": [
+		"node_modules",
+		".next",
+		"next.config.js",
+		"dist",
+		"cli.mjs",
+		"include.cjs",
+		"index.cjs"
+	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*tsx"]
 }

@@ -2,7 +2,7 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
       "module": "ESNext",
-      "target": "es5",
+      "target": "ES5",
       "outDir": "dist",
       "isolatedModules": false,
       "noEmit": false
