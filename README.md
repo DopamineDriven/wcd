@@ -1,5 +1,5 @@
 # 🐜 Windy City Devs LLC 🐜
-
+- 07/03/20
 ```json
 {
 "scripts": {
@@ -31,6 +31,7 @@
 - https://nextjs.org/docs/advanced-features/measuring-performance
 
 ## Toggle Script Messages to exit on success
+- https://stackoverflow.com/questions/21831493/my-nodejs-script-is-not-exiting-on-its-own-after-successful-execution/32617487#32617487
 - https://github.com/vercel/next.js/issues/4647
 - https://nodejs.org/api/process.html#process_event_exit
 - https://nodejs.org/api/process.html#process_process_exit_code
