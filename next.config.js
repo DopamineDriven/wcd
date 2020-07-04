@@ -39,6 +39,8 @@ const nextConfig = {
 		DB_URL: process.env.DB_URI
 	}
 };
+
+
 module.exports = {
 	pageExtensions: ["json", "jsx", "js", "ts", "tsx", "cjs"]
 };
