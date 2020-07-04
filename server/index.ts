@@ -86,6 +86,13 @@ const mount = async (app: Application) => {
 	console.log(`[app]: http://localhost:${PORT}/categories`);
 	console.log(`[server]: running...`);
 
+	process.on("SIGTERM", (_) => {
+		console.log(`Process ${process.pid} received a SIGTERM signal`);
+		server.close(() => {
+			process.exit(0)
+		})
+	});
+
 	setInterval(
 		() =>
 			server.getConnections((_err, connections) =>
@@ -103,7 +110,8 @@ const mount = async (app: Application) => {
 		connections.push(connection);
 		connection.on(
 			"close",
-			() => (connections = connections.filter((curr: any) => curr !== connection))
+			() =>
+				(connections = connections.filter((curr: any) => curr !== connection))
 		);
 	});
 
