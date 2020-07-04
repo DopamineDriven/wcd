@@ -6,6 +6,9 @@
 	"proxy": "http://localhost:7777",
 	"dist": {},
 	"bin": "./scripts/env.check.js",
+	"engines": {
+		"node": "14.5.0"
+	},
 	"scripts": {
 		"tsc": "tsc -p tsconfig-cjs.json",
 		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
@@ -38,7 +41,7 @@
 		"vercel:export": "npm run export",
 		"server:build": "tsc -p ./"
 	},
-	"heroku-run-build-script": true,
+	"heroku-run-post:build-script": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/DopamineDriven/wcd.git"
