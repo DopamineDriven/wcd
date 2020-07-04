@@ -6,6 +6,9 @@
 	"proxy": "http://localhost:7777",
 	"dist": {},
 	"bin": "./scripts/env.check.js",
+	"engines": {
+		"node": "14.5.0"
+	},
 	"scripts": {
 		"tsc": "tsc -p tsconfig-cjs.json",
 		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
@@ -23,9 +26,9 @@
 		"next:build": "rm -rf .next && cross-env run-p serve vercel:build",
 		"prestart": "npm run export",
 		"localprod": "next start",
-		"build": "concurrently \"cross-env npm run serve\" \"cross-env npm run conc:build\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"p:build": "concurrently \"cross-env npm run serve\" \"cross-env npm run conc:build\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"conc:build": "next build",
-		"p:build": "run-p -r serve conc:build",
+		"build": "run-p -r serve conc:build",
 		"start": "serve out",
 		"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
 		"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
@@ -35,7 +38,7 @@
 		"export": "next export",
 		"vercel:export": "npm run export"
 	},
-	"heroku-run-next:build-script": true,
+	"heroku-run-build-script": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/DopamineDriven/wcd.git"
