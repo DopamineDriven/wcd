@@ -20,22 +20,38 @@ import express, { Application, Request, Response } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
-import { connectDatabase } from "../utils";
-import { Post, Category } from "../shared";
+// import { connectDatabase } from "../utils";
+// import { Post, Category } from "../shared";
+import posts from "./posts.json";
+import categories from "./categories.json";
+import bodyParser from "body-parser";
 // import { createServer } from "http";
 // import { parse } from "url";
-const PORT = parseInt(<string>process.env.PORT || "3000", 10);
+// import next from "next";
+const PORT = parseInt(<string>process.env.PORT, 10) || 3000;
+// const dev = process.env.NODE_ENV !== "production";
+// const app = next({ dev });
+// const handle = app.getRequestHandler();
 
+// app.prepare().then(() => {
+// 	const server = express();
+// 	server.use(bodyParser.json())
+
+// 	server.get('/posts', (req: Request, res: Response) => {
+// 		return app.render(req, res, '/posts', res.json(posts))
+// 	})
+
+// })
 
 
 const mount = async (app: Application) => {
 	// application.prepare();
-	const db = await connectDatabase();
-	const posts: Post[] = await db.posts.find({}).toArray();
-	console.log(posts);
-	const categories: Category[] = ["Technology", "Science", "People"];
+	// const db = await connectDatabase();
+	// const posts: Post[] = await db.posts.find({}).toArray();
+	// console.log(posts);
+	// const categories: Category[] = ["Technology", "Science", "People"];
 
-	app.use(compression(), express.json(), cors(), Helmet());
+	app.use(compression(), bodyParser.json(), cors(), Helmet());
 
 	app.get("/posts", cors(), (_req: Request, res: Response) => {
 		return res.json(posts);
@@ -59,7 +75,7 @@ const mount = async (app: Application) => {
 	});
 	
 	app.listen(PORT);
-	console.log(`[app]: http://localhost:${3000}`);
+	console.log(`[app]: http://localhost:${PORT}`);
 	console.log(`[app]: http://localhost:${PORT}/posts`);
 	console.log(`[app]: http://localhost:${PORT}/categories`);
 };

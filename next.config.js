@@ -45,6 +45,10 @@ module.exports = {
 	pageExtensions: ["json", "jsx", "js", "ts", "tsx", "cjs"]
 };
 
+module.exports = {
+	distDir: "build"
+};
+
 module.exports = withConfig(
 	withPlugins(
 		[
