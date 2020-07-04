@@ -21,7 +21,7 @@ import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
 import http from "http";
-import { connectDatabase } from "../utils";
+import { connectDatabase } from "./utils";
 import { Post, Category } from "../shared";
 // import posts from "./posts.json";
 // import categories from "./categories.json";

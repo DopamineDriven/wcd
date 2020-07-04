@@ -6,9 +6,6 @@
 	"proxy": "http://localhost:7777",
 	"dist": {},
 	"bin": "./scripts/env.check.js",
-	"engines": {
-		"node": "14.5.0"
-	},
 	"scripts": {
 		"tsc": "tsc -p tsconfig-cjs.json",
 		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
@@ -26,7 +23,7 @@
 		"next:build": "rm -rf .next && cross-env run-p serve vercel:build",
 		"prestart": "npm run export",
 		"localprod": "next start",
-		"p:build": "concurrently \"cross-env npm run serve\" \"cross-env npm run conc:build\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"p:build": "concurrently --success first \"cross-env npm run serve\" \"cross-env npm run conc:build\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"conc:build": "next build",
 		"build": "run-p -r serve conc:build",
 		"start": "serve out",
@@ -36,7 +33,8 @@
 		"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"export": "next export",
-		"vercel:export": "npm run export"
+		"vercel:export": "npm run export",
+		"server:build": "tsc -p ./"
 	},
 	"heroku-run-build-script": true,
 	"repository": {

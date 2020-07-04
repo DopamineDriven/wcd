@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import { ObjectId } from "mongodb";
-import { connectDatabase } from "../utils";
+import { connectDatabase } from "../server/utils";
 import { Post } from "../shared";
 
 const posts: Post[] = [
