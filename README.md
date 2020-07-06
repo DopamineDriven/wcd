@@ -82,6 +82,7 @@ npm run dev
 ```
 
 ## Deploy with heroku
+- https://github.com/mars/heroku-nextjs-custom-server-express
 
 - include after "scripts"
 

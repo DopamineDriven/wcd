@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 
-import { connectDatabase } from "../server/utils";
+import { connectDatabase } from "../utils";
 
 const clear = async () => {
     try {

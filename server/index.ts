@@ -1,20 +1,5 @@
 require("dotenv").config();
 import "ts-polyfill";
-// import 'ts-polyfill/lib/es2015';
-// import 'ts-polyfill/lib/es2016-array-include';
-// import 'ts-polyfill/lib/es2017-string';
-// import 'ts-polyfill/lib/es2017-object';
-// import 'ts-polyfill/lib/es2017-typed-arrays';
-// import 'ts-polyfill/lib/es2018-async-iterable';
-// import 'ts-polyfill/lib/es2018-promise';
-// import 'ts-polyfill/lib/es2019-array';
-// import 'ts-polyfill/lib/es2019-object';
-// import 'ts-polyfill/lib/es2019-string';
-// import 'ts-polyfill/lib/es2019-symbol';
-// import 'ts-polyfill/lib/es2020-global-this';
-// import 'ts-polyfill/lib/es2020-promise';
-// import 'ts-polyfill/lib/es2020-string';
-// import 'ts-polyfill/lib/es2020-symbol-wellknown';
 import express, { Application, Request, Response } from "express";
 import Helmet from "helmet";
 import compression from "compression";
@@ -28,26 +13,11 @@ import bodyParser from "body-parser";
 // import { createTerminus, HealthCheckError } from "@godaddy/terminus";
 // import { createServer } from "http";
 import { parse as parseUrl } from "url";
-// import next from "next";
 const PORT = parseInt(<string>process.env.PORT, 10) || 3000;
 import nextapp from "./routes";
 const handler = nextapp.getRequestHandler();
-// const dev = process.env.NODE_ENV !== "production";
-// const app = next({ dev });
-// const handle = app.getRequestHandler();
-
-// app.prepare().then(() => {
-// 	const server = express();
-// 	server.use(bodyParser.json())
-
-// 	server.get('/posts', (req: Request, res: Response) => {
-// 		return app.render(req, res, '/posts', res.json(posts))
-// 	})
-
-// })
 
 const mount = async (app: Application) => {
-	// application.prepare();
 	const db = await connectDatabase();
 	const posts: Post[] = await db.posts.find({}).toArray();
 	console.log(posts);
@@ -89,7 +59,7 @@ const mount = async (app: Application) => {
 	});
 	try {
 		const server = http.createServer(app);
-		await nextapp.prepare()
+		await nextapp.prepare();
 		server.listen(PORT);
 		console.log(`[app]: http://localhost:${PORT}`);
 		console.log(`[app]: http://localhost:${PORT}/posts`);
@@ -98,7 +68,7 @@ const mount = async (app: Application) => {
 		process.on("SIGTERM", () => {
 			console.info("SIGTERM signal received");
 		});
-	
+
 		process.on("SIGTERM", () => {
 			console.log(`Process ${process.pid} received a SIGTERM signal`);
 			server.close(() => {
@@ -106,63 +76,64 @@ const mount = async (app: Application) => {
 			});
 		});
 
-		
-	setInterval(
-		() =>
-			server.getConnections((_err, connections) =>
-				console.log(`${connections} connections currently open`)
-			),
-		1000
-	);
-
-	let connections: any = [];
-
-	server.on("connection", (connection) => {
-		connections.push(connection);
-		connection.on(
-			"close",
+		setInterval(
 			() =>
-				(connections = connections.filter((curr: any) => curr !== connection))
+				server.getConnections((_err, connections) =>
+					console.log(`${connections} connections currently open`)
+				),
+			1000
 		);
-	});
 
-	const shutDown = async () => {
-		console.log("Received kill signal, shutting down gracefully");
-		server.close(() => {
-			console.log("Closed out remaining connections");
-			process.exit(0);
+		let connections: any = [];
+
+		server.on("connection", (connection) => {
+			connections.push(connection);
+			connection.on(
+				"close",
+				() =>
+					(connections = connections.filter((curr: any) => curr !== connection))
+			);
 		});
 
-		setTimeout(() => {
-			console.error(
-				"Could not close connections in time, forcefully shutting down"
+		const shutDown = async () => {
+			console.log("Received kill signal, shutting down gracefully");
+			server.close(() => {
+				console.log("Closed out remaining connections");
+				process.exit(0);
+			});
+
+			setTimeout(() => {
+				console.error(
+					"Could not close connections in time, forcefully shutting down"
+				);
+				process.exit(1);
+			}, 10000);
+
+			connections.forEach((curr: any) => curr.end());
+			setTimeout(
+				() => connections.forEach((curr: any) => curr.destroy()),
+				5000
 			);
-			process.exit(1);
-		}, 10000);
+		};
 
-		connections.forEach((curr: any) => curr.end());
-		setTimeout(() => connections.forEach((curr: any) => curr.destroy()), 5000);
-	}
-
-	process.on("SIGTERM", shutDown);
-	process.on("SIGINT", shutDown);
+		process.on("SIGTERM", shutDown);
+		process.on("SIGINT", shutDown);
 	} catch (error) {
-		throw new Error(`there was an error ${error}`)
+		throw new Error(`there was an error ${error}`);
 	}
-
-	// process.on('SIGTERM', shutDown);
-	// process.on('SIGINT', shutDown)
 };
 process.on("SIGTERM", () => {
 	console.info("SIGTERM signal received");
 });
+
+mount(express());
+
+
 // const myArgs = process.argv.slice(2);
 // console.log(`arguments: ${myArgs}`);
 // if (process.argv = ["/node12/bin/node", "node12/bin/npm","run","conc:build"] && process.exit(0)) {
 // 	process.exit(0)
 // }
-
-mount(express());
 
 // 08:41:03.712
 // [0] [now] [mutex] process.argv is ["/node12/bin/node","/node12/bin/npm","run","serve"]

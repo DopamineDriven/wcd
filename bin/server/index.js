@@ -48,21 +48,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv").config();
 require("ts-polyfill");
-// import 'ts-polyfill/lib/es2015';
-// import 'ts-polyfill/lib/es2016-array-include';
-// import 'ts-polyfill/lib/es2017-string';
-// import 'ts-polyfill/lib/es2017-object';
-// import 'ts-polyfill/lib/es2017-typed-arrays';
-// import 'ts-polyfill/lib/es2018-async-iterable';
-// import 'ts-polyfill/lib/es2018-promise';
-// import 'ts-polyfill/lib/es2019-array';
-// import 'ts-polyfill/lib/es2019-object';
-// import 'ts-polyfill/lib/es2019-string';
-// import 'ts-polyfill/lib/es2019-symbol';
-// import 'ts-polyfill/lib/es2020-global-this';
-// import 'ts-polyfill/lib/es2020-promise';
-// import 'ts-polyfill/lib/es2020-string';
-// import 'ts-polyfill/lib/es2020-symbol-wellknown';
 var express_1 = __importDefault(require("express"));
 var helmet_1 = __importDefault(require("helmet"));
 var compression_1 = __importDefault(require("compression"));
@@ -75,20 +60,9 @@ var body_parser_1 = __importDefault(require("body-parser"));
 // import { createTerminus, HealthCheckError } from "@godaddy/terminus";
 // import { createServer } from "http";
 var url_1 = require("url");
-// import next from "next";
 var PORT = parseInt(process.env.PORT, 10) || 3000;
 var routes_1 = __importDefault(require("./routes"));
 var handler = routes_1.default.getRequestHandler();
-// const dev = process.env.NODE_ENV !== "production";
-// const app = next({ dev });
-// const handle = app.getRequestHandler();
-// app.prepare().then(() => {
-// 	const server = express();
-// 	server.use(bodyParser.json())
-// 	server.get('/posts', (req: Request, res: Response) => {
-// 		return app.render(req, res, '/posts', res.json(posts))
-// 	})
-// })
 var mount = function (app) { return __awaiter(void 0, void 0, void 0, function () {
     var db, posts, categories, server_1, connections_1, shutDown, error_1;
     return __generator(this, function (_a) {
@@ -198,12 +172,12 @@ var mount = function (app) { return __awaiter(void 0, void 0, void 0, function (
 process.on("SIGTERM", function () {
     console.info("SIGTERM signal received");
 });
+mount(express_1.default());
 // const myArgs = process.argv.slice(2);
 // console.log(`arguments: ${myArgs}`);
 // if (process.argv = ["/node12/bin/node", "node12/bin/npm","run","conc:build"] && process.exit(0)) {
 // 	process.exit(0)
 // }
-mount(express_1.default());
 // 08:41:03.712
 // [0] [now] [mutex] process.argv is ["/node12/bin/node","/node12/bin/npm","run","serve"]
 // 08:41:03.713
