@@ -1,27 +1,55 @@
-require("dotenv").config();
-import "ts-polyfill";
+import * as dotenv from "dotenv";
+dotenv.config();
+import 'ts-polyfill';
+// import 'ts-polyfill/lib/es2015';
+// import 'ts-polyfill/lib/es2016-array-include';
+// import 'ts-polyfill/lib/es2017-string';
+// import 'ts-polyfill/lib/es2017-object';
+// import 'ts-polyfill/lib/es2017-typed-arrays';
+// import 'ts-polyfill/lib/es2018-async-iterable';
+// import 'ts-polyfill/lib/es2018-promise';
+// import 'ts-polyfill/lib/es2019-array';
+// import 'ts-polyfill/lib/es2019-object';
+// import 'ts-polyfill/lib/es2019-string';
+// import 'ts-polyfill/lib/es2019-symbol';
+// import 'ts-polyfill/lib/es2020-global-this';
+// import 'ts-polyfill/lib/es2020-promise';
+// import 'ts-polyfill/lib/es2020-string';
+// import 'ts-polyfill/lib/es2020-symbol-wellknown';
 import express, { Application, Request, Response } from "express";
 import Helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
-import http from "http";
-import { connectDatabase } from "./utils";
-import { Post, Category } from "../shared";
-// import posts from "./posts.json";
-// import categories from "./categories.json";
+// import { connectDatabase } from "../utils";
+// import { Post, Category } from "../shared";
+import posts from "./posts.json";
+import categories from "./categories.json";
 import bodyParser from "body-parser";
-// import { createTerminus, HealthCheckError } from "@godaddy/terminus";
 // import { createServer } from "http";
-import { parse as parseUrl } from "url";
+// import { parse } from "url";
+// import next from "next";
 const PORT = parseInt(<string>process.env.PORT, 10) || 3000;
-import nextapp from "./routes";
-const handler = nextapp.getRequestHandler();
+// const dev = process.env.NODE_ENV !== "production";
+// const app = next({ dev });
+// const handle = app.getRequestHandler();
+
+// app.prepare().then(() => {
+// 	const server = express();
+// 	server.use(bodyParser.json())
+
+// 	server.get('/posts', (req: Request, res: Response) => {
+// 		return app.render(req, res, '/posts', res.json(posts))
+// 	})
+
+// })
+
 
 const mount = async (app: Application) => {
-	const db = await connectDatabase();
-	const posts: Post[] = await db.posts.find({}).toArray();
-	console.log(posts);
-	const categories: Category[] = ["Technology", "Science", "People"];
+	// application.prepare();
+	// const db = await connectDatabase();
+	// const posts: Post[] = await db.posts.find({}).toArray();
+	// console.log(posts);
+	// const categories: Category[] = ["Technology", "Science", "People"];
 
 	app.use(compression(), bodyParser.json(), cors(), Helmet());
 
@@ -47,17 +75,85 @@ const mount = async (app: Application) => {
 	});
 
 	app.get("/", (_req: Request, res: Response) => {
-		res.json({ ping: true });
+		res.json({ ping: true })
 	});
-	app.get("/*", (req: Request, res: Response) => {
-		const { pathname, query } = parseUrl(req.url, true);
-		if (pathname === "category" || pathname === "post")
-			nextapp.render(req, res, pathname, query);
-		else {
-			handler(req, res, parseUrl(req.url, true));
-		}
-	});
-	try {
+	
+	app.listen(PORT);
+	console.log(`[app]: http://localhost:${PORT}`);
+	console.log(`[app]: http://localhost:${PORT}/posts`);
+	console.log(`[app]: http://localhost:${PORT}/categories`);
+
+};
+
+const myArgs = process.argv.slice(2);
+console.log(`arguments: ${myArgs}`);
+// if (process.argv = ["/node12/bin/node", "node12/bin/npm","run","conc:build"] && process.exit(0)) {
+// 	process.exit(0)
+// }
+
+mount(express()); 
+
+/*
+require("dotenv").config();
+import "ts-polyfill";
+import express, { Application, Request, Response } from "express";
+import Helmet from "helmet";
+import compression from "compression";
+import cors from "cors";
+import http from "http";
+import { connectDatabase } from "./utils";
+import { Post, Category } from "../shared";
+// import posts from "./posts.json";
+// import categories from "./categories.json";
+import bodyParser from "body-parser";
+// import { createTerminus, HealthCheckError } from "@godaddy/terminus";
+// import { createServer } from "http";
+import { parse as parseUrl } from "url";
+const PORT = parseInt(<string>process.env.PORT, 10) || 3000;
+import nextapp from "./routes";
+const handler = nextapp.getRequestHandler();
+
+const mount = async (app: Application) => {
+	nextapp.prepare().then(async () => {
+		const db = await connectDatabase();
+		const posts: Post[] = await db.posts.find({}).toArray();
+		console.log(posts);
+		const categories: Category[] = ["Technology", "Science", "People"];
+		app.use(compression(), bodyParser.json(), cors(), Helmet());
+
+		app.get("/posts", cors(), (_req: Request, res: Response) => {
+			return res.json(posts);
+		});
+	
+		app.get("/posts/:id", cors(), (req: Request, res: Response) => {
+			const relevantId = String(req.params.id);
+			const post = posts.find(({ id }) => String(id) === relevantId);
+			return res.json(post);
+		});
+	
+		app.get("/categories", (_req: Request, res: Response) => {
+			return res.json(categories);
+		});
+	
+		app.get("/categories/:id", (req: Request, res: Response) => {
+			const { id } = req.params;
+			const foundPost = posts.filter(({ category }) => category === id);
+			const categoryPosts = [...foundPost, ...foundPost, ...foundPost];
+			return res.json(categoryPosts);
+		});
+	
+		app.get("/", (_req: Request, res: Response) => {
+			res.json({ ping: true });
+		});
+		app.get("/*", (req: Request, res: Response) => {
+			const { pathname, query } = parseUrl(req.url, true);
+			if (pathname === "category" || pathname === "post")
+				nextapp.render(req, res, pathname, query);
+			else {
+				handler(req, res, parseUrl(req.url, true));
+			}
+	})
+		try {
 		const server = http.createServer(app);
 		await nextapp.prepare();
 		server.listen(PORT);
@@ -121,31 +217,27 @@ const mount = async (app: Application) => {
 	} catch (error) {
 		throw new Error(`there was an error ${error}`);
 	}
-};
-process.on("SIGTERM", () => {
-	console.info("SIGTERM signal received");
-});
+	process.on("SIGTERM", () => {
+		console.info("SIGTERM signal received");
+		});
+}
+
+	)};
 
 mount(express());
+*/
 
-
-// const myArgs = process.argv.slice(2);
-// console.log(`arguments: ${myArgs}`);
-// if (process.argv = ["/node12/bin/node", "node12/bin/npm","run","conc:build"] && process.exit(0)) {
-// 	process.exit(0)
-// }
-
-// 08:41:03.712
+// 08:41:03.712  
 // [0] [now] [mutex] process.argv is ["/node12/bin/node","/node12/bin/npm","run","serve"]
-// 08:41:03.713
+// 08:41:03.713  
 // [0] [now] [mutex] process.cwd is "/vercel/791e3741"
-// 08:41:03.713
+// 08:41:03.713  
 // [0] [now] [mutex] command is "run"
-// 08:41:03.714
+// 08:41:03.714  
 // [1] [now] [mutex] process.argv is ["/node12/bin/node","/node12/bin/npm","run","conc:build"]
-// 08:41:03.714
+// 08:41:03.714  
 // [1] [now] [mutex] process.cwd is "/vercel/791e3741"
-// 08:41:03.714
+// 08:41:03.714  
 // [1] [now] [mutex] command is "run"
 
 // import log from "../utils/cjs/";

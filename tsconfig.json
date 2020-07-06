@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES5",
+		"target": "ES2015",
 		"lib": [
 			"DOM",
 			"DOM.Iterable",
@@ -33,8 +33,7 @@
 		"dist",
 		"cli.mjs",
 		"include.cjs",
-    "index.cjs",
-    "bin"
+		"index.cjs"
 	],
 	"include": ["next-env.d.ts", "**/*.ts", "**/*tsx"]
 }

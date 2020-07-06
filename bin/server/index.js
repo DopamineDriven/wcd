@@ -64,114 +64,120 @@ var PORT = parseInt(process.env.PORT, 10) || 3000;
 var routes_1 = __importDefault(require("./routes"));
 var handler = routes_1.default.getRequestHandler();
 var mount = function (app) { return __awaiter(void 0, void 0, void 0, function () {
-    var db, posts, categories, server_1, connections_1, shutDown, error_1;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, utils_1.connectDatabase()];
-            case 1:
-                db = _a.sent();
-                return [4 /*yield*/, db.posts.find({}).toArray()];
-            case 2:
-                posts = _a.sent();
-                console.log(posts);
-                categories = ["Technology", "Science", "People"];
-                app.use(compression_1.default(), body_parser_1.default.json(), cors_1.default(), helmet_1.default());
-                app.get("/posts", cors_1.default(), function (_req, res) {
-                    return res.json(posts);
-                });
-                app.get("/posts/:id", cors_1.default(), function (req, res) {
-                    var relevantId = String(req.params.id);
-                    var post = posts.find(function (_a) {
-                        var id = _a.id;
-                        return String(id) === relevantId;
-                    });
-                    return res.json(post);
-                });
-                app.get("/categories", function (_req, res) {
-                    return res.json(categories);
-                });
-                app.get("/categories/:id", function (req, res) {
-                    var id = req.params.id;
-                    var foundPost = posts.filter(function (_a) {
-                        var category = _a.category;
-                        return category === id;
-                    });
-                    var categoryPosts = __spreadArrays(foundPost, foundPost, foundPost);
-                    return res.json(categoryPosts);
-                });
-                app.get("/", function (_req, res) {
-                    res.json({ ping: true });
-                });
-                app.get("/*", function (req, res) {
-                    var _a = url_1.parse(req.url, true), pathname = _a.pathname, query = _a.query;
-                    if (pathname === "category" || pathname === "post")
-                        routes_1.default.render(req, res, pathname, query);
-                    else {
-                        handler(req, res, url_1.parse(req.url, true));
-                    }
-                });
-                _a.label = 3;
-            case 3:
-                _a.trys.push([3, 5, , 6]);
-                server_1 = http_1.default.createServer(app);
-                return [4 /*yield*/, routes_1.default.prepare()];
-            case 4:
-                _a.sent();
-                server_1.listen(PORT);
-                console.log("[app]: http://localhost:" + PORT);
-                console.log("[app]: http://localhost:" + PORT + "/posts");
-                console.log("[app]: http://localhost:" + PORT + "/categories");
-                console.log("[server]: running...");
-                process.on("SIGTERM", function () {
-                    console.info("SIGTERM signal received");
-                });
-                process.on("SIGTERM", function () {
-                    console.log("Process " + process.pid + " received a SIGTERM signal");
-                    server_1.close(function () {
-                        process.exit(0);
-                    });
-                });
-                setInterval(function () {
-                    return server_1.getConnections(function (_err, connections) {
-                        return console.log(connections + " connections currently open");
-                    });
-                }, 1000);
-                connections_1 = [];
-                server_1.on("connection", function (connection) {
-                    connections_1.push(connection);
-                    connection.on("close", function () {
-                        return (connections_1 = connections_1.filter(function (curr) { return curr !== connection; }));
-                    });
-                });
-                shutDown = function () { return __awaiter(void 0, void 0, void 0, function () {
-                    return __generator(this, function (_a) {
-                        console.log("Received kill signal, shutting down gracefully");
-                        server_1.close(function () {
-                            console.log("Closed out remaining connections");
-                            process.exit(0);
+        routes_1.default.prepare().then(function () { return __awaiter(void 0, void 0, void 0, function () {
+            var db, posts, categories, server_1, connections_1, shutDown, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, utils_1.connectDatabase()];
+                    case 1:
+                        db = _a.sent();
+                        return [4 /*yield*/, db.posts.find({}).toArray()];
+                    case 2:
+                        posts = _a.sent();
+                        console.log(posts);
+                        categories = ["Technology", "Science", "People"];
+                        app.use(compression_1.default(), body_parser_1.default.json(), cors_1.default(), helmet_1.default());
+                        app.get("/posts", cors_1.default(), function (_req, res) {
+                            return res.json(posts);
                         });
-                        setTimeout(function () {
-                            console.error("Could not close connections in time, forcefully shutting down");
-                            process.exit(1);
-                        }, 10000);
-                        connections_1.forEach(function (curr) { return curr.end(); });
-                        setTimeout(function () { return connections_1.forEach(function (curr) { return curr.destroy(); }); }, 5000);
+                        app.get("/posts/:id", cors_1.default(), function (req, res) {
+                            var relevantId = String(req.params.id);
+                            var post = posts.find(function (_a) {
+                                var id = _a.id;
+                                return String(id) === relevantId;
+                            });
+                            return res.json(post);
+                        });
+                        app.get("/categories", function (_req, res) {
+                            return res.json(categories);
+                        });
+                        app.get("/categories/:id", function (req, res) {
+                            var id = req.params.id;
+                            var foundPost = posts.filter(function (_a) {
+                                var category = _a.category;
+                                return category === id;
+                            });
+                            var categoryPosts = __spreadArrays(foundPost, foundPost, foundPost);
+                            return res.json(categoryPosts);
+                        });
+                        app.get("/", function (_req, res) {
+                            res.json({ ping: true });
+                        });
+                        app.get("/*", function (req, res) {
+                            var _a = url_1.parse(req.url, true), pathname = _a.pathname, query = _a.query;
+                            if (pathname === "category" || pathname === "post")
+                                routes_1.default.render(req, res, pathname, query);
+                            else {
+                                handler(req, res, url_1.parse(req.url, true));
+                            }
+                        });
+                        _a.label = 3;
+                    case 3:
+                        _a.trys.push([3, 5, , 6]);
+                        server_1 = http_1.default.createServer(app);
+                        return [4 /*yield*/, routes_1.default.prepare()];
+                    case 4:
+                        _a.sent();
+                        server_1.listen(PORT);
+                        console.log("[app]: http://localhost:" + PORT);
+                        console.log("[app]: http://localhost:" + PORT + "/posts");
+                        console.log("[app]: http://localhost:" + PORT + "/categories");
+                        console.log("[server]: running...");
+                        process.on("SIGTERM", function () {
+                            console.info("SIGTERM signal received");
+                        });
+                        process.on("SIGTERM", function () {
+                            console.log("Process " + process.pid + " received a SIGTERM signal");
+                            server_1.close(function () {
+                                process.exit(0);
+                            });
+                        });
+                        setInterval(function () {
+                            return server_1.getConnections(function (_err, connections) {
+                                return console.log(connections + " connections currently open");
+                            });
+                        }, 1000);
+                        connections_1 = [];
+                        server_1.on("connection", function (connection) {
+                            connections_1.push(connection);
+                            connection.on("close", function () {
+                                return (connections_1 = connections_1.filter(function (curr) { return curr !== connection; }));
+                            });
+                        });
+                        shutDown = function () { return __awaiter(void 0, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                console.log("Received kill signal, shutting down gracefully");
+                                server_1.close(function () {
+                                    console.log("Closed out remaining connections");
+                                    process.exit(0);
+                                });
+                                setTimeout(function () {
+                                    console.error("Could not close connections in time, forcefully shutting down");
+                                    process.exit(1);
+                                }, 10000);
+                                connections_1.forEach(function (curr) { return curr.end(); });
+                                setTimeout(function () { return connections_1.forEach(function (curr) { return curr.destroy(); }); }, 5000);
+                                return [2 /*return*/];
+                            });
+                        }); };
+                        process.on("SIGTERM", shutDown);
+                        process.on("SIGINT", shutDown);
+                        return [3 /*break*/, 6];
+                    case 5:
+                        error_1 = _a.sent();
+                        throw new Error("there was an error " + error_1);
+                    case 6:
+                        process.on("SIGTERM", function () {
+                            console.info("SIGTERM signal received");
+                        });
                         return [2 /*return*/];
-                    });
-                }); };
-                process.on("SIGTERM", shutDown);
-                process.on("SIGINT", shutDown);
-                return [3 /*break*/, 6];
-            case 5:
-                error_1 = _a.sent();
-                throw new Error("there was an error " + error_1);
-            case 6: return [2 /*return*/];
-        }
+                }
+            });
+        }); });
+        return [2 /*return*/];
     });
 }); };
-process.on("SIGTERM", function () {
-    console.info("SIGTERM signal received");
-});
 mount(express_1.default());
 // const myArgs = process.argv.slice(2);
 // console.log(`arguments: ${myArgs}`);

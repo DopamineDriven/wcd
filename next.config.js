@@ -40,11 +40,11 @@ const nextConfig = {
 	}
 };
 
-module.exports = {
-	typescript: {
-		ignoreBuildErrors: true
-	}
-};
+// module.exports = {
+// 	typescript: {
+// 		ignoreBuildErrors: true
+// 	}
+// };
 
 module.exports = {
 	pageExtensions: ["json", "jsx", "js", "ts", "tsx", "cjs"]

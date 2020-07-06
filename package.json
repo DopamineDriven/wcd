@@ -24,7 +24,7 @@
 		"localprod": "next start",
 		"p:build": "concurrently --kill-others --success first \"cross-env npm run conc:build\" \"cross-env npm run serve\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
 		"build:server": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" --project tsconfig.server.json server/index.ts",
-		"conc:build": "next build && tsc --project tsconfig.server.json",
+		"conc:build": "next build",
 		"build": "run-p -r serve conc:build",
 		"post:build": "run-p built:server localprod",
 		"built:server": "tsc  --project tsconfig.server.json",
