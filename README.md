@@ -1,36 +1,53 @@
 # 🐜 Windy City Devs LLC 🐜
+
 - 07/03/20
+
 ```json
 {
-"scripts": {
-	"tsc": "tsc -p tsconfig-cjs.json",
-	"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
-	"production": "run-p prod:productionserver prod:server",
-	"prod:productionserver": "node ./.next/production-server/server/index.js",
-	"prod:server": "node ./.next/server/init-server.js",
-	"build:prod": "cross-env NODE_ENV=production && run-s prebuild build export start",
-	"client": "next",
-	"analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
-	"watch": "./node_modules/.bin/tsc-watch --onSuccess -f \"ts-node .\"",
-	"vercel:build": "next build && tsc --project tsconfig.server.json",
-	"prebuild": "cross-env NODE_ENV=production && node ./scripts/env-check.js && rimraf build",
-	"build": "rm -rf .next && run-p serve vercel:build watch",
-	"prestart": "npm run export",
-	"start": "serve out",
-	"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/seed.ts",
-	"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" cloud/clear.ts",
-	"serve": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" --project tsconfig.server.json server/index.ts",
-	"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
-	"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
-	"export": "next export",
-	"vercel:export": "npm run export"
-},
+	"scripts": {
+		"tsc": "tsc -p tsconfig-cjs.json",
+		"prod": "rm -rf .next && next build && tsc --project tsconfig.server.json",
+		"production": "run-p prod:productionserver prod:server",
+		"prod:productionserver": "node ./.next/production-server/server/index.js",
+		"prod:server": "node ./.next/server/init-server.js",
+		"build:prod": "cross-env run-s prebuild build export start",
+		"client": "next",
+		"analyze": "cross-env ANALYZE=true npm run build",
+		"analyze:server": "cross-env BUNDLE_ANALYZE=server npm run build",
+		"analyze:browser": "cross-env BUNDLE_ANALYZE=browser npm run build",
+		"env-scripts": "ts-node ./scripts/env-check.js",
+		"watch": "./node_modules/.bin/tsc-watch --onSuccess \" exit\"",
+		"vercel:build": "run-p serve next:build",
+		"next:build": "rm -rf .next && cross-env run-p serve vercel:build",
+		"prestart": "npm run export",
+		"localprod": "next start",
+		"p:build": "concurrently --kill-others --success first \"next build\" \"cross-env npm run serve\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"build:client": "next build",
+		"conc:build": "npm run p:build",
+		"build": "run-p built:server conc:build",
+		"post:build": "run-p built:server localprod",
+		"built:server": "tsc -p tsconfig.server.json",
+		"start": "serve out",
+		"seed": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" server/cloud/seed.ts",
+		"clear": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" server/cloud/clear.ts",
+		"serve": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" --project tsconfig.server.json server/index.ts",
+		"exe:dev": "ts-node --transpile-only --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"dev": "concurrently --kill-others \"npm run serve\" \"next\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"",
+		"export": "next export",
+		"vercel:export": "npm run export",
+		"server:start": "node ./bin/server/index.js",
+		"client:start": "next start",
+		"heroku:start": "run-p server:start client:start"
+	}
 }
 ```
+
 ## Measuring performance
+
 - https://nextjs.org/docs/advanced-features/measuring-performance
 
 ## Toggle Script Messages to exit on success
+
 - https://stackoverflow.com/questions/21831493/my-nodejs-script-is-not-exiting-on-its-own-after-successful-execution/32617487#32617487
 - https://github.com/vercel/next.js/issues/4647
 - https://nodejs.org/api/process.html#process_event_exit
@@ -44,6 +61,7 @@
 - https://openbase.io/js/tsc-watch
 - https://github.com/gilamran/tsc-watch/blob/master/package.json
 - https://www.npmjs.com/package/tsc-watch
+
 ## Next Examples
 
 - https://github.com/vercel/next.js/tree/canary/examples
@@ -82,6 +100,7 @@ npm run dev
 ```
 
 ## Deploy with heroku
+
 - https://github.com/mars/heroku-nextjs-custom-server-express
 
 - include after "scripts"
