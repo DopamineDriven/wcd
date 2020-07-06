@@ -89,7 +89,7 @@ npm run dev
 ```
 
 ## Deploy with Vercel
-
+- https://github.com/mars/heroku-nextjs-custom-server-express
 - https://vercel.com/docs/configuration#introduction/configuration-reference
 - direct path to prod server
 
