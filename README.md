@@ -535,3 +535,5 @@ module.exports = {
 
 - The super tiny compiler - walks you through writing a custom compiler to parse code into an AST - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 - MongoDB Atlas with Next - https://github.com/kukicado/building-modern-app-with-nextjs-and-mongodb
+
+- revisit server 
