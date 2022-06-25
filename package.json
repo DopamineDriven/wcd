@@ -74,7 +74,7 @@
 		"next-compose-plugins": "^2.2.0",
 		"next-routes": "^1.4.2",
 		"next-runtime-dotenv": "^1.2.0",
-		"node-fetch": "^2.6.0",
+		"node-fetch": "^2.6.7",
 		"path": "^0.12.7",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
